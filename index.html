@@ -80,7 +80,9 @@
   .price-wrap{ display:flex; justify-content:center; }
   .price-card{ background:var(--card); border:1px solid rgba(212,175,106,.35); border-radius:20px; padding:40px 44px; max-width:480px; text-align:center; box-shadow:0 0 40px rgba(212,175,106,.06); }
   .price-flash{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#0a1108; background:var(--gold); display:inline-block; padding:6px 14px; border-radius:999px; font-weight:700; margin-bottom:18px; }
-  .price-old{ font-size:18px; color:var(--text-dimmer); text-decoration:line-through; }
+  .price-market{ font-size:13.5px; color:var(--text-dimmer); }
+  .price-market strong{ color:var(--text-dim); font-weight:600; text-decoration:line-through; }
+  .price-old{ font-size:18px; color:var(--text-dimmer); text-decoration:line-through; margin-top:10px; }
   .price-new{ font-family:'Space Grotesk',sans-serif; font-size:56px; font-weight:700; color:var(--text); margin:6px 0 4px; }
   .price-note{ font-size:13.5px; color:var(--text-dim); margin-bottom:26px; }
   .price-list{ text-align:left; list-style:none; margin-bottom:30px; }
@@ -202,10 +204,11 @@
     </div>
     <div class="price-wrap">
       <div class="price-card">
-        <div class="price-flash">Oferta desta semana</div>
+        <div class="price-flash">Só hoje</div>
+        <div class="price-market">Um site assim custa de <strong>R$2.000 a R$3.000</strong> no mercado</div>
         <div class="price-old">R$ 599</div>
         <div class="price-new">R$ 229</div>
-        <div class="price-note">Pagamento único · só depois de você aprovar o site pronto</div>
+        <div class="price-note">Pagamento único · só depois de você aprovar o site pronto · válido só hoje</div>
         <ul class="price-list">
           <li>Site completo, sob medida pro seu negócio</li>
           <li>Prévia gratuita antes de qualquer pagamento</li>
@@ -217,7 +220,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
           Garantir minha vaga
         </a>
-        <div class="price-fine">Domínio próprio (opcional) custa à parte, entre R$40 e R$110/ano, pago direto no registro — sem intermediário.</div>
+        <div class="price-fine">Passou de hoje, volta a valer R$599. Domínio próprio (opcional) custa à parte, entre R$40 e R$110/ano, pago direto no registro — sem intermediário.</div>
       </div>
     </div>
   </div>
