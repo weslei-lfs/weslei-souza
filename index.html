@@ -3,143 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Site Profissional Pra Qualquer Negócio — Weslei Souza</title>
-<meta name="description" content="Sites profissionais para qualquer tipo de negócio. Você só paga se aprovar. Fale agora no WhatsApp.">
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1533239328300759');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1533239328300759&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+<title>Weslei Souza — Desenvolvimento Web Sob Medida</title>
+<meta name="description" content="Sites profissionais construídos com disciplina, foco e execução. Fale comigo e vamos alinhar o que seu negócio precisa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#07080a; --bg-soft:#0d0f12; --card:#111318; --line:#22262e; --line-soft:#1a1d23;
-    --text:#f4f2ec; --text-dim:#a7abb4; --text-dimmer:#6b6f78;
-    --gold:#d4af6a; --gold-soft:rgba(212,175,106,.14);
-    --wa:#25d366; --wa-dark:#1da851;
+    --bg:#070a10; --bg-1:#0a0e18; --surface:#111a2b; --surface-2:#1c2740; --surface-3:#283355;
+    --border:#3d4a6b; --border-strong:#55638c;
+    --text:#eef1f7; --text-muted:#9aa4b8; --text-faint:#7885a0;
+    --accent:#d4af6a; --accent-soft:rgba(212,175,106,.14); --accent-ink:#0a0d12;
+    --wa:#25d366;
+    --serif:'Fraunces', serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
-  body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-  .display{ font-family:'Space Grotesk',sans-serif; }
-  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  img,svg{ max-width:100%; display:block; }
+  .serif{ font-family:var(--serif); }
+  .mono{ font-family:var(--mono); }
+  .wrap{ max-width:1100px; margin:0 auto; padding:0 28px; }
 
   .bg-glow{ position:fixed; inset:0; z-index:0; pointer-events:none;
     background:
-      radial-gradient(650px 500px at 15% -10%, rgba(212,175,106,.10), transparent 60%),
-      radial-gradient(700px 550px at 100% 20%, rgba(212,175,106,.06), transparent 60%);
+      radial-gradient(700px 550px at 10% -10%, rgba(212,175,106,.09), transparent 60%),
+      radial-gradient(750px 600px at 100% 10%, rgba(212,175,106,.05), transparent 60%),
+      radial-gradient(600px 500px at 50% 100%, rgba(212,175,106,.04), transparent 60%);
+  }
+  .grain{ position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.03; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  nav{ position:sticky; top:0; z-index:50; background:rgba(7,8,10,.75); backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft); }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
-  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:.02em; }
-  .brand span{ color:var(--gold); }
-  .btn-wa{ display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:10px 18px; border-radius:999px; font-size:14px; transition:background .2s,transform .2s; }
-  .btn-wa:hover{ background:var(--wa-dark); transform:translateY(-1px); }
-  .btn-wa svg{ width:16px; height:16px; }
-  .btn-wa.big{ padding:16px 30px; font-size:17px; }
+  /* -------- nav -------- */
+  nav{ position:sticky; top:0; z-index:50; background:rgba(7,10,16,.75); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  nav .wrap{ display:flex; align-items:center; gap:14px; padding:14px 28px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-mark{ width:26px; height:26px; flex:0 0 auto; }
+  .brand-mark line, .brand-mark circle{ stroke:var(--accent); fill:none; stroke-linecap:round; }
+  .brand-mark .blade{ fill:var(--accent); stroke:none; }
+  .brand-word{ font-weight:800; font-size:14px; letter-spacing:.8px; }
+  .brand-word span{ display:block; font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:1px; }
+  .nav-links{ display:flex; gap:26px; margin-left:44px; font-size:13px; font-weight:600; color:var(--text-muted); }
+  .nav-links a:hover{ color:var(--text); }
+  .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:999px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
+  .btn-wa:hover{ filter:brightness(1.07); transform:translateY(-1px); }
+  .btn-wa svg{ width:15px; height:15px; }
+  .btn-wa.big{ padding:15px 28px; font-size:16px; }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:15px 26px; border:1px solid var(--border); border-radius:999px; font-size:15px; font-weight:600; color:var(--text-muted); }
+  .btn-ghost:hover{ border-color:var(--border-strong); color:var(--text); }
 
-  section{ position:relative; z-index:2; padding:88px 0; border-bottom:1px solid var(--line-soft); }
+  section{ position:relative; z-index:2; }
 
-  .hero{ padding-top:96px; padding-bottom:96px; text-align:center; }
-  .eyebrow{ display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); background:var(--gold-soft); border:1px solid rgba(212,175,106,.3); padding:6px 14px; border-radius:999px; margin-bottom:24px; }
-  h1{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(32px,5.5vw,58px); line-height:1.08; letter-spacing:-.02em; max-width:820px; margin:0 auto 20px; }
-  h1 .accent{ color:var(--gold); }
-  .lede{ font-size:clamp(16px,2vw,19px); color:var(--text-dim); max-width:560px; margin:0 auto 36px; }
+  /* -------- hero -------- */
+  .hero{ padding:110px 0 90px; text-align:center; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(212,175,106,.3); padding:7px 16px; border-radius:999px; margin-bottom:28px; }
+  .eyebrow::before{ content:"◆"; font-size:8px; }
+  h1{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(34px,5.6vw,60px); line-height:1.12; letter-spacing:-.01em; max-width:820px; margin:0 auto 22px; }
+  h1 em{ font-style:italic; color:var(--accent); }
+  .lede{ font-size:clamp(16px,2vw,18px); color:var(--text-muted); max-width:540px; margin:0 auto 40px; }
   .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-  .btn-ghost{ display:inline-flex; align-items:center; padding:16px 26px; border:1px solid var(--line); border-radius:999px; font-size:15px; font-weight:600; color:var(--text-dim); }
 
-  .section-head{ text-align:center; max-width:640px; margin:0 auto 52px; }
-  .section-tag{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; font-weight:600; }
-  h2{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(24px,3.2vw,34px); letter-spacing:-.01em; }
-  .section-sub{ color:var(--text-dim); margin-top:12px; font-size:15.5px; }
+  .section-head{ text-align:center; max-width:600px; margin:0 auto 56px; }
+  .section-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(26px,3.4vw,38px); letter-spacing:-.01em; margin-top:14px; }
+  .section-sub{ color:var(--text-muted); margin-top:14px; font-size:15.5px; }
 
-  /* portfolio */
-  .portfolio-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-  .pf-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:border-color .2s,transform .2s; }
-  .pf-card:hover{ border-color:rgba(212,175,106,.4); transform:translateY(-3px); }
-  .pf-chrome{ display:flex; align-items:center; gap:6px; padding:12px 14px; border-bottom:1px solid var(--line); }
-  .pf-dot{ width:9px; height:9px; border-radius:50%; background:var(--line); }
-  .pf-url{ margin-left:8px; font-size:12px; color:var(--text-dimmer); font-family:monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .pf-preview{ padding:36px 24px; text-align:center; background:linear-gradient(160deg,#14161b,#0c0e11); }
-  .pf-niche{ font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-  .pf-name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; margin-bottom:6px; }
-  .pf-loc{ font-size:13.5px; color:var(--text-dimmer); }
-  .pf-body{ padding:20px 24px 24px; }
-  .pf-desc{ font-size:14.5px; color:var(--text-dim); margin-bottom:16px; }
-  .pf-rating{ font-size:13.5px; color:var(--gold); margin-bottom:16px; font-weight:600; }
-  .pf-link{ font-size:14px; font-weight:600; color:var(--text); display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid var(--gold); padding-bottom:2px; }
+  /* -------- princípios -------- */
+  .principios{ padding:90px 0; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); background:linear-gradient(180deg, transparent, rgba(212,175,106,.03), transparent); }
+  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .princ-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:34px 26px; text-align:center; }
+  .princ-ic{ width:52px; height:52px; margin:0 auto 22px; }
+  .princ-ic line, .princ-ic circle{ stroke:var(--accent); fill:none; stroke-linecap:round; stroke-width:3; }
+  .princ-ic .blade{ fill:var(--accent); stroke:none; }
+  .princ-num{ font-family:var(--mono); font-size:11px; color:var(--text-faint); letter-spacing:.15em; margin-bottom:8px; }
+  .princ-title{ font-family:var(--serif); font-weight:600; font-size:21px; margin-bottom:12px; }
+  .princ-desc{ font-size:14.5px; color:var(--text-muted); line-height:1.65; }
 
-  /* how it works */
-  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
-  .step{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 16px; }
-  .step-num{ font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:var(--gold); margin-bottom:10px; }
-  .step-title{ font-weight:700; font-size:14.5px; margin-bottom:6px; }
-  .step-desc{ font-size:13px; color:var(--text-dim); }
+  /* -------- portfolio -------- */
+  .portfolio{ padding:100px 0; }
+  .pf-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:18px; overflow:hidden; transition:border-color .25s, transform .25s; }
+  .pf-card:hover{ border-color:rgba(212,175,106,.4); transform:translateY(-4px); }
+  .pf-chrome{ display:flex; align-items:center; gap:6px; padding:13px 16px; border-bottom:1px solid var(--border); }
+  .pf-dot{ width:8px; height:8px; border-radius:50%; background:var(--border-strong); }
+  .pf-url{ margin-left:10px; font-family:var(--mono); font-size:11px; color:var(--text-faint); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pf-preview{ padding:44px 24px; text-align:center; background:linear-gradient(160deg,#161b26,#0c0e14); }
+  .pf-niche{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .pf-name{ font-family:var(--serif); font-weight:600; font-size:24px; margin-bottom:6px; }
+  .pf-loc{ font-size:13.5px; color:var(--text-faint); }
+  .pf-body{ padding:22px 26px 26px; }
+  .pf-desc{ font-size:14.5px; color:var(--text-muted); margin-bottom:18px; line-height:1.6; }
+  .pf-rating{ font-size:13.5px; color:var(--accent); margin-bottom:18px; font-weight:600; }
+  .pf-link{ font-size:14px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid var(--accent); padding-bottom:2px; }
 
-  /* pricing */
-  .price-wrap{ display:flex; justify-content:center; }
-  .price-card{ background:var(--card); border:1px solid rgba(212,175,106,.35); border-radius:20px; padding:40px 44px; max-width:480px; text-align:center; box-shadow:0 0 40px rgba(212,175,106,.06); }
-  .price-flash{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#0a1108; background:var(--gold); display:inline-block; padding:6px 14px; border-radius:999px; font-weight:700; margin-bottom:18px; }
-  .price-market{ font-size:13.5px; color:var(--text-dimmer); }
-  .price-market strong{ color:var(--text-dim); font-weight:600; text-decoration:line-through; }
-  .price-old{ font-size:18px; color:var(--text-dimmer); text-decoration:line-through; margin-top:10px; }
-  .price-new{ font-family:'Space Grotesk',sans-serif; font-size:56px; font-weight:700; color:var(--text); margin:6px 0 4px; }
-  .price-note{ font-size:13.5px; color:var(--text-dim); margin-bottom:26px; }
-  .price-list{ text-align:left; list-style:none; margin-bottom:30px; }
-  .price-list li{ display:flex; gap:10px; font-size:14.5px; color:var(--text-dim); padding:8px 0; border-bottom:1px solid var(--line-soft); }
-  .price-list li:last-child{ border-bottom:none; }
-  .price-list li::before{ content:"✓"; color:var(--gold); font-weight:700; }
-  .price-fine{ font-size:12.5px; color:var(--text-dimmer); margin-top:18px; }
+  /* -------- processo -------- */
+  .processo{ padding:100px 0; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); }
+  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; counter-reset:step; }
+  .step{ position:relative; padding-top:8px; }
+  .step::before{ counter-increment:step; content:counter(step,decimal-leading-zero); font-family:var(--mono); font-size:26px; font-weight:600; color:var(--accent); display:block; margin-bottom:14px; opacity:.85; }
+  .step-title{ font-weight:700; font-size:14.5px; margin-bottom:8px; }
+  .step-desc{ font-size:13px; color:var(--text-muted); line-height:1.55; }
 
-  /* region */
-  .region-row{ display:flex; gap:20px; justify-content:center; flex-wrap:wrap; text-align:center; }
-  .region-item{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 30px; min-width:200px; }
-  .region-city{ font-weight:700; font-size:16px; margin-bottom:4px; }
-  .region-state{ font-size:13px; color:var(--text-dimmer); }
+  /* -------- investimento -------- */
+  .investimento{ padding:90px 0; text-align:center; }
+  .invest-card{ max-width:560px; margin:0 auto; background:var(--surface); border:1px solid rgba(212,175,106,.35); border-radius:20px; padding:46px 40px; box-shadow:0 0 50px rgba(212,175,106,.06); }
+  .invest-card p{ font-size:15.5px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
+  .invest-tag{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:24px; color:var(--accent); margin:20px 0 26px; }
 
-  /* final cta */
-  .final-cta{ text-align:center; border-bottom:none; }
-  .final-cta h2{ margin-bottom:14px; }
-  .final-cta .section-sub{ margin-bottom:34px; }
+  /* -------- social -------- */
+  .social{ padding:90px 0; text-align:center; }
+  .social-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:8px; }
+  .social-card{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 24px; transition:border-color .2s, transform .2s; }
+  .social-card:hover{ border-color:rgba(212,175,106,.4); transform:translateY(-2px); }
+  .social-ic{ width:24px; height:24px; flex:0 0 auto; }
+  .social-label{ text-align:left; }
+  .social-label .t{ font-weight:700; font-size:14px; }
+  .social-label .s{ font-size:12px; color:var(--text-faint); }
 
-  footer{ padding:32px 0; text-align:center; font-size:13px; color:var(--text-dimmer); }
+  /* -------- final cta -------- */
+  .final-cta{ padding:110px 0 100px; text-align:center; }
+  .final-cta h2{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(28px,4vw,42px); margin-bottom:16px; }
+  .final-cta .section-sub{ margin-bottom:38px; }
 
-  @media (max-width:820px){
-    .portfolio-grid{ grid-template-columns:1fr; }
+  footer{ padding:36px 0; text-align:center; font-size:13px; color:var(--text-faint); border-top:1px solid var(--border); }
+  footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; }
+  footer .fmark line, footer .fmark circle{ stroke:var(--text-faint); fill:none; stroke-linecap:round; }
+  footer .fmark .blade{ fill:var(--text-faint); stroke:none; }
+
+  @media (max-width:900px){
+    .princ-grid, .pf-grid{ grid-template-columns:1fr; }
     .steps{ grid-template-columns:1fr 1fr; }
-    .price-card{ padding:32px 26px; }
+    .nav-links{ display:none; }
   }
   @media (max-width:520px){
     .steps{ grid-template-columns:1fr; }
-    section{ padding:60px 0; }
+    .hero{ padding:80px 0 60px; }
+    .principios, .portfolio, .processo, .investimento, .social, .final-cta{ padding-top:64px; padding-bottom:64px; }
+    .invest-card{ padding:34px 24px; }
   }
 </style>
 </head>
 <body>
 <div class="bg-glow"></div>
+<div class="grain"></div>
 
 <nav>
   <div class="wrap">
-    <div class="brand">WESLEI SOUZA <span>· Sites</span></div>
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 120 120" aria-hidden="true">
+        <line x1="18" y1="14" x2="60" y2="106"/>
+        <line x1="24" y1="30" x2="31" y2="26.5"/>
+        <line x1="30" y1="45" x2="37" y2="41.5"/>
+        <line x1="36" y1="60" x2="43" y2="56.5"/>
+        <line x1="42" y1="75" x2="49" y2="71.5"/>
+        <line x1="48" y1="90" x2="55" y2="86.5"/>
+        <line x1="102" y1="14" x2="60" y2="106"/>
+        <line x1="70" y1="86" x2="91" y2="96" style="opacity:.85"/>
+        <line x1="66" y1="89" x2="81" y2="103" style="opacity:.85"/>
+        <line x1="63" y1="93" x2="70" y2="109" style="opacity:.85"/>
+        <line x1="74" y1="81" x2="99" y2="86" style="opacity:.85"/>
+        <path class="blade" d="M 60 105 L 55 113 L 60 123 L 65 113 Z"/>
+      </svg>
+      <div class="brand-word">WESLEI SOUZA<span>Desenvolvimento Web</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#principios">Como trabalho</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#processo">Processo</a>
+    </div>
     <a class="btn-wa" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
       WhatsApp
@@ -149,27 +181,72 @@ src="https://www.facebook.com/tr?id=1533239328300759&ev=PageView&noscript=1"
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">SITES SOB DEMANDA</div>
-    <h1>Site profissional pra <span class="accent">qualquer negócio</span>. Você só paga se aprovar.</h1>
-    <p class="lede">Advocacia, saúde, comércio, serviços — não importa o seu ramo. Eu crio o site completo, você vê pronto antes de decidir se paga qualquer coisa.</p>
+    <div class="eyebrow">Desenvolvimento web sob medida</div>
+    <h1>Todo negócio tem um ponto onde tudo converge. <em>O seu começa aqui.</em></h1>
+    <p class="lede">Crio sites profissionais com disciplina, foco e execução — do primeiro traço ao último detalhe. Sem template genérico, sem atalho.</p>
     <div class="hero-ctas">
       <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-        Quero o meu site
+        Falar no WhatsApp
       </a>
-      <a class="btn-ghost" href="#portfolio">Ver projetos entregues</a>
+      <a class="btn-ghost" href="#portfolio">Ver portfólio</a>
     </div>
   </div>
 </section>
 
-<section id="portfolio">
+<section class="principios" id="principios">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-tag">Prova real, não promessa</div>
+      <div class="eyebrow">Como eu trabalho</div>
+      <h2>Três princípios. Um resultado.</h2>
+    </div>
+    <div class="princ-grid">
+      <div class="princ-card">
+        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
+          <line x1="18" y1="14" x2="60" y2="106"/>
+          <line x1="24" y1="30" x2="31" y2="26.5"/>
+          <line x1="30" y1="45" x2="37" y2="41.5"/>
+          <line x1="36" y1="60" x2="43" y2="56.5"/>
+          <line x1="42" y1="75" x2="49" y2="71.5"/>
+          <line x1="48" y1="90" x2="55" y2="86.5"/>
+        </svg>
+        <div class="princ-num">01</div>
+        <div class="princ-title">Disciplina</div>
+        <div class="princ-desc">Processo estruturado, prazos que eu cumpro e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
+      </div>
+      <div class="princ-card">
+        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
+          <line x1="102" y1="14" x2="60" y2="106"/>
+          <line x1="70" y1="86" x2="91" y2="96"/>
+          <line x1="66" y1="89" x2="81" y2="103"/>
+          <line x1="63" y1="93" x2="70" y2="109"/>
+          <line x1="74" y1="81" x2="99" y2="86"/>
+          <line x1="78" y1="75" x2="106" y2="72"/>
+        </svg>
+        <div class="princ-num">02</div>
+        <div class="princ-title">Foco</div>
+        <div class="princ-desc">Cada site é pensado pro seu negócio específico — o que você vende, pra quem, e o que faz alguém escolher você. Nada de solução genérica.</div>
+      </div>
+      <div class="princ-card">
+        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
+          <path class="blade" d="M 60 30 L 45 70 L 60 100 L 75 70 Z"/>
+        </svg>
+        <div class="princ-num">03</div>
+        <div class="princ-title">Execução</div>
+        <div class="princ-desc">Do design ao ar, sem enrolação. Acompanho pessoalmente cada etapa até seu site sair do papel e ganhar vida na internet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Prova real, não promessa</div>
       <h2>Projetos entregues, em nichos diferentes</h2>
       <p class="section-sub">Sem mockup fake. Estes são sites reais, no ar, de clientes reais.</p>
     </div>
-    <div class="portfolio-grid">
+    <div class="pf-grid">
       <div class="pf-card">
         <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">rafaelbertoletti.com</div></div>
         <div class="pf-preview">
@@ -199,71 +276,63 @@ src="https://www.facebook.com/tr?id=1533239328300759&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section>
+<section class="processo" id="processo">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-tag">Como funciona</div>
+      <div class="eyebrow">Como funciona</div>
       <h2>Do primeiro contato ao site no ar</h2>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-title">Você chama no WhatsApp</div><div class="step-desc">Conta um pouco sobre o seu negócio.</div></div>
-      <div class="step"><div class="step-num">02</div><div class="step-title">Você manda o material</div><div class="step-desc">Logo, fotos e informações do serviço.</div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title">Prévia gratuita</div><div class="step-desc">Eu monto o site e te mostro pronto.</div></div>
-      <div class="step"><div class="step-num">04</div><div class="step-title">Você aprova</div><div class="step-desc">Só paga se gostar do resultado.</div></div>
-      <div class="step"><div class="step-num">05</div><div class="step-title">Site no ar</div><div class="step-desc">Publicado e pronto pra receber clientes.</div></div>
+      <div class="step"><div class="step-title">Contato</div><div class="step-desc">Você me chama no WhatsApp e conta sobre o seu negócio.</div></div>
+      <div class="step"><div class="step-title">Briefing</div><div class="step-desc">Levanto o que você precisa: identidade, conteúdo, referências.</div></div>
+      <div class="step"><div class="step-title">Prévia</div><div class="step-desc">Construo o site e te mostro pronto, sem compromisso.</div></div>
+      <div class="step"><div class="step-title">Ajustes</div><div class="step-desc">Refino com você até ficar exatamente do jeito certo.</div></div>
+      <div class="step"><div class="step-title">No ar</div><div class="step-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="investimento">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-tag">Investimento</div>
-      <h2>Simples, sem letra miúda</h2>
-    </div>
-    <div class="price-wrap">
-      <div class="price-card">
-        <div class="price-flash">Só hoje</div>
-        <div class="price-market">Um site assim custa de <strong>R$2.000 a R$3.000</strong> no mercado</div>
-        <div class="price-old">R$ 599</div>
-        <div class="price-new">R$ 229</div>
-        <div class="price-note">Pagamento único · só depois de você aprovar o site pronto · válido só hoje</div>
-        <ul class="price-list">
-          <li>Site completo, sob medida pro seu negócio</li>
-          <li>Prévia gratuita antes de qualquer pagamento</li>
-          <li>Hospedagem sem mensalidade</li>
-          <li>Botão de WhatsApp direto no site</li>
-          <li>Ajustes incluídos até você aprovar</li>
-        </ul>
-        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20aproveitar%20a%20oferta%20de%20R%24229%20no%20site" target="_blank" rel="noopener">
+    <div class="invest-card">
+      <div class="eyebrow">Investimento</div>
+      <p>Não trabalho com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
+      <div class="invest-tag">Valor a combinar.</div>
+      <p>Conversamos, eu entendo o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
+      <div style="margin-top:26px;">
+        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-          Garantir minha vaga
+          Vamos conversar
         </a>
-        <div class="price-fine">Passou de hoje, volta a valer R$599. Domínio próprio (opcional) custa à parte, entre R$40 e R$110/ano, pago direto no registro — sem intermediário.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="social">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-tag">Onde atendo</div>
-      <h2>Presencial ou 100% remoto</h2>
-      <p class="section-sub">Todo o processo funciona pelo WhatsApp — não importa onde seu negócio esteja.</p>
+      <div class="eyebrow">Acompanhe</div>
+      <h2>Bastidores e novidades</h2>
     </div>
-    <div class="region-row">
-      <div class="region-item"><div class="region-city">Andradina</div><div class="region-state">SP</div></div>
-      <div class="region-item"><div class="region-city">Campo Grande</div><div class="region-state">MS</div></div>
-      <div class="region-item"><div class="region-city">Resto do Brasil</div><div class="region-state">100% remoto</div></div>
+    <div class="social-row">
+      <a class="social-card" href="https://www.instagram.com/weslei_ls/" target="_blank" rel="noopener">
+        <svg class="social-ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--accent)" stroke="none"/></svg>
+        <div class="social-label"><div class="t">@weslei_ls</div><div class="s">Instagram</div></div>
+      </a>
+      <a class="social-card" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
+        <svg class="social-ic" viewBox="0 0 24 24" fill="var(--wa)"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+        <div class="social-label"><div class="t">WhatsApp</div><div class="s">Fale agora</div></div>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="wrap">
+    <div class="eyebrow">Vamos começar</div>
     <h2>Seu negócio merece um site à altura.</h2>
-    <p class="section-sub">Fale agora e receba sua prévia gratuita — sem compromisso.</p>
+    <p class="section-sub">Sem compromisso, sem letra miúda. Só uma conversa pra entender o que você precisa.</p>
     <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
       Falar no WhatsApp agora
@@ -272,7 +341,11 @@ src="https://www.facebook.com/tr?id=1533239328300759&ev=PageView&noscript=1"
 </section>
 
 <footer>
-  Weslei Souza · Sites profissionais sob demanda · Andradina-SP / Campo Grande-MS
+  <svg class="fmark" viewBox="0 0 120 120" aria-hidden="true">
+    <line x1="18" y1="14" x2="60" y2="106"/><line x1="102" y1="14" x2="60" y2="106"/>
+    <path class="blade" d="M 60 105 L 55 113 L 60 123 L 65 113 Z"/>
+  </svg>
+  Weslei Souza · Desenvolvimento web sob medida · Andradina-SP / Campo Grande-MS
 </footer>
 
 </body>
