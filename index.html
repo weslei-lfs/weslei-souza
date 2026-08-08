@@ -68,6 +68,30 @@
   .section-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(26px,3.4vw,38px); letter-spacing:-.01em; margin-top:14px; }
   .section-sub{ color:var(--text-muted); margin-top:14px; font-size:15.5px; }
 
+  /* -------- logo grande -------- */
+  .logo-showcase{ padding:20px 0 90px; text-align:center; }
+  .logo-showcase img{ max-width:300px; width:100%; margin:0 auto; filter: drop-shadow(0 0 50px rgba(31,147,242,.22)); }
+
+  /* -------- a lenda -------- */
+  .lenda{ padding:20px 0 110px; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); background:linear-gradient(180deg, transparent, rgba(31,147,242,.035), transparent); }
+  .lenda-wrap{ max-width:680px; margin:0 auto; padding:0 28px; }
+  .lenda-title{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(26px,4vw,36px); text-align:center; margin:18px 0 56px; line-height:1.3; }
+  .lenda p{ font-size:16.5px; color:var(--text-muted); line-height:1.85; margin-bottom:20px; }
+  .lenda p strong{ color:var(--text); font-weight:700; }
+  .lenda .beat{ font-family:var(--serif); font-style:italic; font-size:19px; color:var(--text); text-align:center; margin:22px 0; line-height:1.5; }
+  .lenda h3{ font-family:var(--serif); font-weight:600; font-size:23px; margin:58px 0 18px; text-align:center; }
+  .lenda .pull{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(22px,3.2vw,30px); color:var(--accent); text-align:center; line-height:1.45; margin:54px 0 8px; }
+  .lenda .pull-final{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(24px,3.6vw,34px); text-align:center; line-height:1.45; margin:60px 0 10px; }
+  .lenda .pull-final strong{ color:var(--accent); font-weight:600; font-style:italic; }
+  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:50px 0; }
+  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px 24px; }
+  .namesplit-card h4{ font-family:var(--mono); font-size:13px; letter-spacing:.2em; color:var(--accent); margin-bottom:14px; }
+  .namesplit-card p{ font-size:14.5px; margin-bottom:10px; }
+  .namesplit-card p:last-child{ margin-bottom:0; }
+  .lenda .taglist{ display:flex; flex-wrap:wrap; justify-content:center; margin:30px 0; font-family:var(--serif); font-style:italic; font-size:17px; color:var(--text); text-align:center; }
+  .lenda .taglist span:not(:last-child)::after{ content:" · "; color:var(--accent); }
+  .lenda .brandmark{ font-family:var(--mono); font-weight:700; font-size:clamp(20px,3vw,28px); letter-spacing:.25em; text-align:center; color:var(--text); margin:60px 0; }
+
   /* -------- princípios -------- */
   .principios{ padding:90px 0; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); background:linear-gradient(180deg, transparent, rgba(31,147,242,.04), transparent); }
   .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
@@ -136,7 +160,7 @@
   footer .fmark{ width:18px; height:18px; display:inline-block; vertical-align:-4px; margin-right:6px; opacity:.7; }
 
   @media (max-width:900px){
-    .princ-grid, .pf-grid, .formatos-grid{ grid-template-columns:1fr; }
+    .princ-grid, .pf-grid, .formatos-grid, .namesplit{ grid-template-columns:1fr; }
     .steps{ grid-template-columns:1fr 1fr; }
     .nav-links{ display:none; }
   }
@@ -144,6 +168,8 @@
     .steps{ grid-template-columns:1fr; }
     .hero{ padding:80px 0 60px; }
     .principios, .portfolio, .processo, .formatos, .investimento, .social, .final-cta{ padding-top:64px; padding-bottom:64px; }
+    .lenda{ padding-top:50px; padding-bottom:64px; }
+    .logo-showcase{ padding-bottom:60px; }
     .invest-card{ padding:34px 24px; }
   }
 </style>
@@ -159,6 +185,7 @@
       <div class="brand-word">NETWORK SPACE<span>Agência de Sites</span></div>
     </div>
     <div class="nav-links">
+      <a href="#lenda">Nossa história</a>
       <a href="#principios">Como trabalho</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#processo">Processo</a>
@@ -183,6 +210,88 @@
       </a>
       <a class="btn-ghost" href="#portfolio">Ver portfólio</a>
     </div>
+  </div>
+</section>
+
+<section class="logo-showcase">
+  <div class="wrap">
+    <img src="logo-full-dark.png" alt="Network Space">
+  </div>
+</section>
+
+<section class="lenda" id="lenda">
+  <div class="lenda-wrap">
+    <div class="section-head" style="margin-bottom:8px;">
+      <div class="eyebrow">A origem da marca</div>
+    </div>
+    <h2 class="lenda-title">A lenda do lobo da Network Space</h2>
+
+    <p>Antes de existir a Network Space, existia apenas um lobo.</p>
+    <p class="beat">Não era o maior.<br>Não era o mais rápido.<br>Não era o mais feroz.</p>
+    <p class="beat">Era apenas aquele que enxergava mais longe.</p>
+    <p>Enquanto os outros lobos procuravam o próximo caminho, ele procurava aquilo que existia depois dele. Enquanto a matilha seguia rastros conhecidos, ele parava diante do desconhecido.</p>
+    <p class="beat">E foi assim que, certa noite, ele deixou a floresta.<br>Não porque estivesse perdido.</p>
+    <p>Mas porque percebeu uma coisa que ninguém havia percebido antes:</p>
+    <p class="pull">o mundo era muito maior do que a sua própria matilha.</p>
+
+    <p>Ele caminhou durante dias. Atravessou montanhas, rios e cidades. Até chegar a um lugar onde milhares de luzes brilhavam no horizonte.</p>
+    <p>Ali, ele encontrou algo que nunca tinha visto.</p>
+    <p class="beat">Pessoas.<br>Milhares delas.</p>
+    <p>Cada uma carregando uma ideia. Uma pequena empresa. Um sonho. Uma habilidade. Uma história.</p>
+    <p>Algumas tinham grandes planos, mas ninguém as conhecia. Outras tinham produtos incríveis, mas não sabiam como mostrá-los. Algumas trabalhavam todos os dias para construir alguma coisa, enquanto permaneciam invisíveis para o mundo.</p>
+    <p class="beat">O lobo observou tudo em silêncio.<br>E entendeu.</p>
+
+    <p class="beat"><strong>O problema não era falta de talento.</strong><br>Era falta de conexão.</p>
+    <p>Havia pessoas procurando pessoas. Empresas procurando clientes. Ideias procurando espaço. Sonhos procurando uma oportunidade.</p>
+    <p class="beat">Tudo estava ali.<br>Mas estava separado.</p>
+
+    <p>Então o lobo fez aquilo que sempre soube fazer. Ele reuniu a matilha. Mas dessa vez a matilha seria diferente. Não seria formada apenas por lobos. Seria formada por <strong>pessoas</strong>.</p>
+    <div class="taglist"><span>Designers</span><span>Desenvolvedores</span><span>Estrategistas</span><span>Empreendedores</span><span>Criadores</span><span>Comerciantes</span><span>Profissionais</span></div>
+    <p>E, principalmente, pessoas que se recusavam a aceitar que seus sonhos deveriam permanecer pequenos.</p>
+
+    <p class="pull">Foi assim que nasceu a Network Space.</p>
+    <p>Não como uma agência. Não como uma empresa de sites. E muito menos como mais uma marca tentando disputar atenção na internet.</p>
+    <p class="beat">A Network Space nasceu como um <strong>ponto de encontro</strong>.</p>
+    <p>Um espaço onde pessoas e negócios se conectam ao mundo. Onde uma ideia deixa de existir apenas na cabeça de alguém e ganha forma. Onde uma empresa que ninguém conhecia passa a ser encontrada. Onde um pequeno negócio pode construir uma presença tão forte quanto uma grande empresa. Onde tecnologia, criatividade e pessoas deixam de trabalhar separadas. E começam a trabalhar juntas.</p>
+
+    <h3>O lobo nunca esteve sozinho</h3>
+    <p>Essa é a parte que quase ninguém entende. O lobo não representa a solidão. Representa <strong>a liderança que sabe reunir</strong>.</p>
+    <p class="beat">Um lobo sozinho pode sobreviver.<br>Mas uma matilha pode mudar o destino de uma floresta.</p>
+    <p>Por isso, na Network Space, ninguém é apenas cliente. Ninguém é apenas funcionário. Ninguém é apenas parceiro.</p>
+    <p class="pull">Todos fazem parte da rede.</p>
+    <p>Porque uma rede é mais forte quando cada pessoa acrescenta alguma coisa.</p>
+    <div class="taglist"><span>Uma ideia</span><span>Uma habilidade</span><span>Uma oportunidade</span><span>Uma conexão</span><span>Uma indicação</span><span>Uma história</span><span>Um sonho</span></div>
+    <p>E quanto mais pessoas entram, mais forte a rede se torna.</p>
+
+    <div class="namesplit">
+      <div class="namesplit-card">
+        <h4>NETWORK</h4>
+        <p>Porque ninguém constrói algo extraordinário completamente sozinho. Toda grande empresa começou com uma pessoa. Mas nenhuma grande empresa chegou longe sem outras pessoas.</p>
+        <p>A Network Space acredita no poder das conexões: negócios a pessoas, pessoas a oportunidades, ideias a tecnologia, empresas ao mundo.</p>
+      </div>
+      <div class="namesplit-card">
+        <h4>SPACE</h4>
+        <p>Porque toda ideia precisa de espaço para crescer. Espaço para aparecer, para ser encontrada, para evoluir, para se tornar maior do que era ontem.</p>
+        <p>A internet é esse espaço. E a Network Space existe pra ajudar empresas a ocupá-lo.</p>
+      </div>
+    </div>
+
+    <h3>E o lobo?</h3>
+    <p class="beat">O lobo continua caminhando.</p>
+    <p>Mas agora ele não procura um lugar para pertencer. Ele procura <strong>quem ainda está perdido no caminho</strong>.</p>
+    <p>Aquele pequeno empresário que trabalha todos os dias e ninguém conhece. Aquela pessoa que tem uma ideia extraordinária, mas não sabe por onde começar. Aquele profissional que sabe fazer, mas não sabe mostrar. Aquela empresa que tem potencial para crescer, mas ainda está invisível.</p>
+    <p>Quando encontra alguém assim, ele não passa reto.</p>
+    <p class="beat">Ele para.<br>Olha.<br>E estende a mão.</p>
+    <p>Porque a missão nunca foi encontrar os melhores.</p>
+    <p class="pull">A missão é ajudar pessoas comuns a construírem coisas extraordinárias.</p>
+
+    <p>E é por isso que, quando alguém entra para a Network Space, não está simplesmente contratando uma empresa.</p>
+    <p class="beat">Está entrando para uma rede.<br>Uma matilha.<br>Um espaço onde ideias encontram pessoas, onde pessoas encontram oportunidades, e onde negócios encontram o mundo.</p>
+
+    <div class="brandmark">NETWORK SPACE</div>
+
+    <p class="pull-final">Não estamos aqui apenas para criar presença.<br><strong>Estamos aqui para criar conexões.</strong></p>
+    <p style="text-align:center;">E toda grande história começa quando alguém decide não caminhar sozinho.</p>
   </div>
 </section>
 
@@ -262,27 +371,16 @@
         </div>
       </div>
       <div class="pf-card">
-        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">tf-advocacia-site.vercel.app</div></div>
+        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">biliclinodontologia.com.br</div></div>
         <div class="pf-preview">
-          <div class="pf-niche">Advocacia</div>
-          <div class="pf-name">TF Advocacia e Consultoria</div>
-          <div class="pf-loc">Salesópolis · SP</div>
+          <div class="pf-niche">Odontologia · Prótese</div>
+          <div class="pf-name">Biliclin</div>
+          <div class="pf-loc">São Paulo · SP</div>
         </div>
         <div class="pf-body">
-          <div class="pf-desc">Site institucional para escritório com dois advogados — apresentação da equipe, áreas de atuação (previdenciário, cível, trabalhista, empresarial) e depoimentos reais de clientes.</div>
-          <a class="pf-link" href="https://tf-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a>
-        </div>
-      </div>
-      <div class="pf-card">
-        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">chaves-estetica-automotiva.vercel.app</div></div>
-        <div class="pf-preview">
-          <div class="pf-niche">Estética Automotiva</div>
-          <div class="pf-name">Chaves Estética Automotiva</div>
-          <div class="pf-loc">Ilha Solteira · SP</div>
-        </div>
-        <div class="pf-body">
-          <div class="pf-desc">Site premium pra estética automotiva — galeria de trabalhos reais, serviços e agendamento direto pelo WhatsApp.</div>
-          <a class="pf-link" href="https://chaves-estetica-automotiva.vercel.app" target="_blank" rel="noopener">Visitar site →</a>
+          <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
+          <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
+          <a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a>
         </div>
       </div>
     </div>
