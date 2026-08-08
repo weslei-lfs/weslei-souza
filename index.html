@@ -64,8 +64,9 @@
   section{ position:relative; z-index:2; }
 
   /* -------- hero -------- */
-  .hero{ padding:96px 0 64px; }
-  .hero-inner{ max-width:760px; }
+  .hero{ padding:96px 0 64px; position:relative; overflow:hidden; }
+  .hero-bg-logo{ position:absolute; top:50%; left:50%; transform:translate(-42%,-50%); width:min(900px,110vw); pointer-events:none; z-index:0; opacity:.08; }
+  .hero-inner{ max-width:760px; position:relative; z-index:1; }
   .tag-row{ display:flex; align-items:center; gap:10px; margin-bottom:26px; }
   .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(31,147,242,.3); padding:7px 14px; border-radius:6px; }
   .eyebrow::before{ content:"●"; font-size:7px; }
@@ -224,6 +225,7 @@
 </nav>
 
 <section class="hero">
+  <div class="hero-bg-logo"><img src="logo-mark-dark.png" alt=""></div>
   <div class="wrap">
     <div class="hero-inner">
       <div class="tag-row"><div class="eyebrow">Agência especializada em criação de sites</div></div>
@@ -280,14 +282,14 @@
 <section class="principios" id="principios">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Como eu trabalho</div>
+      <div class="eyebrow">Como trabalhamos</div>
       <h2>Três princípios. Um resultado.</h2>
     </div>
     <div class="princ-grid">
       <div class="princ-card">
         <div class="princ-num">01</div>
         <div class="princ-title">Disciplina</div>
-        <div class="princ-desc">Processo estruturado, prazos que eu cumpro e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
+        <div class="princ-desc">Processo estruturado, prazos que cumprimos e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
       </div>
       <div class="princ-card">
         <div class="princ-num">02</div>
@@ -297,7 +299,7 @@
       <div class="princ-card">
         <div class="princ-num">03</div>
         <div class="princ-title">Execução</div>
-        <div class="princ-desc">Do design ao ar, sem enrolação. Acompanho pessoalmente cada etapa até seu site sair do papel e ganhar vida na internet.</div>
+        <div class="princ-desc">Do design ao ar, sem enrolação. Acompanhamos cada etapa até seu site sair do papel e ganhar vida na internet.</div>
       </div>
     </div>
   </div>
@@ -345,10 +347,10 @@
       <h2>Do primeiro contato ao site no ar</h2>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-title">Contato</div><div class="step-desc">Você me chama no WhatsApp e conta sobre o seu negócio.</div></div>
-      <div class="step"><div class="step-title">Briefing</div><div class="step-desc">Levanto o que você precisa: identidade, conteúdo, referências.</div></div>
-      <div class="step"><div class="step-title">Prévia</div><div class="step-desc">Construo o site e te mostro pronto, sem compromisso.</div></div>
-      <div class="step"><div class="step-title">Ajustes</div><div class="step-desc">Refino com você até ficar exatamente do jeito certo.</div></div>
+      <div class="step"><div class="step-title">Contato</div><div class="step-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
+      <div class="step"><div class="step-title">Briefing</div><div class="step-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
+      <div class="step"><div class="step-title">Prévia</div><div class="step-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
+      <div class="step"><div class="step-title">Ajustes</div><div class="step-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
       <div class="step"><div class="step-title">No ar</div><div class="step-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
     </div>
   </div>
@@ -359,16 +361,16 @@
     <div class="section-head">
       <div class="eyebrow">Depois que o site fica pronto</div>
       <h2>Você escolhe como continua</h2>
-      <p class="section-sub">Dois jeitos de trabalhar comigo, sem letra miúda.</p>
+      <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
     </div>
     <div class="formatos-grid">
       <div class="formato-card">
         <div class="formato-title">Entrega única</div>
-        <div class="formato-desc">Eu construo o site e publico. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende de mim pra continuar no ar.</div>
+        <div class="formato-desc">A gente constrói o site e publica. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende da Network Space pra continuar no ar.</div>
       </div>
       <div class="formato-card">
         <div class="formato-title">Parceria mensal</div>
-        <div class="formato-desc">Se preferir, eu continuo cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
+        <div class="formato-desc">Se preferir, a gente continua cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
       </div>
     </div>
   </div>
@@ -378,9 +380,9 @@
   <div class="wrap">
     <div class="invest-card">
       <div class="eyebrow">Investimento</div>
-      <p>Não trabalho com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
+      <p>Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
       <div class="invest-tag">Valor a combinar.</div>
-      <p>Conversamos, eu entendo o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
+      <p>Conversamos, entendemos o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
       <div style="margin-top:22px;">
         <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
@@ -406,6 +408,10 @@
         <svg class="social-ic" viewBox="0 0 24 24" fill="var(--wa)"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
         <div class="social-label"><div class="t">WhatsApp</div><div class="s">Fale agora</div></div>
       </a>
+      <a class="social-card" href="mailto:contato@networkspace.com.br">
+        <svg class="social-ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>
+        <div class="social-label"><div class="t">contato@networkspace.com.br</div><div class="s">E-mail</div></div>
+      </a>
     </div>
   </div>
 </section>
@@ -426,7 +432,7 @@
 
 <footer>
   <img src="logo-mark-dark.png" alt="Network Space" class="fmark">
-  Network Space · por Weslei Souza · Desenvolvimento web sob medida · Atendo todo o Brasil
+  Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
 <div class="modal-overlay" id="sobreOverlay">
