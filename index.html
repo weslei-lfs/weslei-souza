@@ -8,15 +8,15 @@
 <link rel="icon" type="image/png" href="logo-mark-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#09090b; --bg-1:#0f0f12; --surface:#141417; --surface-2:#1a1a1f; --surface-3:#232329;
-    --border:#2a2a30; --border-strong:#3d3d45;
-    --text:#f3f3f5; --text-muted:#a3a3ad; --text-faint:#6d6d76;
-    --accent:#1f93f2; --accent-2:#5ab6ff; --accent-soft:rgba(31,147,242,.12); --accent-ink:#08090c;
+    --bg:#08080a; --bg-1:#0d0d10; --surface:#131316; --surface-2:#18181c; --surface-3:#212126;
+    --border:#26262c; --border-strong:#3a3a42;
+    --text:#f5f5f7; --text-muted:#a3a3ad; --text-faint:#6d6d76;
+    --accent:#1f93f2; --accent-2:#6cc0ff; --accent-soft:rgba(31,147,242,.12); --accent-ink:#08090c;
     --wa:#25d366;
-    --display:'Space Grotesk', sans-serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
+    --display:'Sora', sans-serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -24,31 +24,27 @@
   a{ color:inherit; text-decoration:none; }
   img,svg{ max-width:100%; display:block; }
   .mono{ font-family:var(--mono); }
-  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
 
-  /* fundo: grid de rede sutil, no clima da logo */
-  .bg-grid{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
-    background-image:
-      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size:56px 56px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
-  }
   .bg-glow{ position:fixed; inset:0; z-index:0; pointer-events:none;
     background:
-      radial-gradient(560px 420px at 14% 0%, rgba(31,147,242,.14), transparent 62%),
-      radial-gradient(520px 400px at 100% 18%, rgba(31,147,242,.07), transparent 60%);
+      radial-gradient(620px 480px at 50% -10%, rgba(31,147,242,.16), transparent 62%),
+      radial-gradient(500px 420px at 100% 30%, rgba(31,147,242,.06), transparent 60%);
   }
+  .chrome-text{ background:linear-gradient(180deg,#ffffff 0%,#dbe6f2 40%,#8fb6de 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .node-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px; }
+  .node-divider .ln{ width:34px; height:1px; background:var(--border-strong); }
+  .node-divider .dot{ width:5px; height:5px; border-radius:50%; background:var(--accent); }
 
   /* -------- nav -------- */
-  nav{ position:sticky; top:0; z-index:50; background:rgba(9,9,11,.8); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  nav{ position:sticky; top:0; z-index:50; background:rgba(8,8,10,.82); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
   nav .wrap{ display:flex; align-items:center; gap:14px; padding:14px 28px; }
   .brand{ display:flex; align-items:center; gap:10px; }
   .brand-mark{ width:28px; height:28px; flex:0 0 auto; }
   .brand-word{ font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em; }
   .brand-word span{ display:block; font-family:var(--sans); font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
-  .nav-links{ display:flex; gap:26px; margin-left:44px; font-size:13px; font-weight:600; color:var(--text-muted); }
+  .nav-links{ display:flex; align-items:center; gap:24px; margin-left:40px; font-size:13px; font-weight:600; color:var(--text-muted); }
   .nav-links a:hover{ color:var(--text); }
   .link-btn{ background:none; border:none; font-family:inherit; font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer; padding:0; }
   .link-btn:hover{ color:var(--text); }
@@ -57,151 +53,147 @@
   .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:8px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
   .btn-wa:hover{ filter:brightness(1.07); transform:translateY(-1px); }
   .btn-wa svg{ width:15px; height:15px; }
-  .btn-wa.big{ padding:15px 26px; font-size:15.5px; border-radius:10px; }
-  .btn-ghost{ display:inline-flex; align-items:center; padding:15px 24px; border:1px solid var(--border-strong); border-radius:10px; font-size:14.5px; font-weight:600; color:var(--text); }
+  .btn-wa.big{ padding:16px 28px; font-size:16px; border-radius:10px; }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:16px 26px; border:1px solid var(--border-strong); border-radius:10px; font-size:15px; font-weight:600; color:var(--text); }
   .btn-ghost:hover{ border-color:var(--accent); background:var(--accent-soft); }
 
   section{ position:relative; z-index:2; }
 
   /* -------- hero -------- */
-  .hero{ padding:96px 0 64px; position:relative; overflow:hidden; }
-  .hero-bg-logo{ position:absolute; top:50%; left:50%; transform:translate(-42%,-50%); width:min(900px,110vw); pointer-events:none; z-index:0; opacity:.08; }
-  .hero-inner{ max-width:760px; position:relative; z-index:1; }
-  .tag-row{ display:flex; align-items:center; gap:10px; margin-bottom:26px; }
-  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(31,147,242,.3); padding:7px 14px; border-radius:6px; }
+  .hero{ padding:80px 0 70px; text-align:center; position:relative; overflow:hidden; }
+  .hero-bg-logo{ position:absolute; top:46%; left:50%; transform:translate(-50%,-50%); width:min(1000px,140vw); pointer-events:none; z-index:0; opacity:.07; }
+  .hero-content{ position:relative; z-index:1; }
+  .hero-mark-ring{ width:180px; height:180px; margin:0 auto 30px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(circle at 50% 50%, rgba(31,147,242,.16), transparent 70%);
+  }
+  .hero-mark-ring::before{ content:""; position:absolute; inset:0; border-radius:50%; border:1px solid rgba(31,147,242,.35); box-shadow:0 0 40px rgba(31,147,242,.25), inset 0 0 30px rgba(31,147,242,.08); }
+  .hero-mark-ring::after{ content:""; position:absolute; inset:14px; border-radius:50%; border:1px solid var(--border); }
+  .hero-mark{ width:96px; height:96px; position:relative; z-index:1; filter:drop-shadow(0 0 18px rgba(31,147,242,.35)); }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(31,147,242,.3); padding:7px 15px; border-radius:999px; }
   .eyebrow::before{ content:"●"; font-size:7px; }
-  h1{ font-family:var(--display); font-weight:700; font-size:clamp(36px,6vw,58px); line-height:1.08; letter-spacing:-.02em; max-width:720px; margin-bottom:22px; }
-  h1 .hl{ color:var(--accent); }
-  .lede{ font-size:clamp(16px,2vw,18px); color:var(--text-muted); max-width:520px; margin-bottom:36px; }
-  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
-  .hero-strip{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:56px; padding-top:26px; border-top:1px solid var(--border); }
-  .hero-strip span{ font-size:12.5px; color:var(--text-faint); display:flex; align-items:center; gap:8px; }
-  .hero-strip span::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
+  h1{ font-family:var(--display); font-weight:700; font-size:clamp(34px,5.6vw,54px); line-height:1.14; letter-spacing:-.01em; max-width:760px; margin:26px auto 20px; }
+  .lede{ font-size:clamp(16px,2vw,17.5px); color:var(--text-muted); max-width:500px; margin:0 auto 36px; }
+  .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .hero-strip{ display:flex; flex-wrap:wrap; gap:10px 30px; justify-content:center; margin-top:52px; padding-top:24px; border-top:1px solid var(--border); }
+  .hero-strip span{ font-size:12px; color:var(--text-faint); letter-spacing:.04em; display:flex; align-items:center; gap:8px; }
+  .hero-strip span::before{ content:""; width:4px; height:4px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
 
-  .section-head{ max-width:600px; margin-bottom:48px; }
-  .section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,34px); letter-spacing:-.01em; margin-top:12px; }
+  .section-head{ text-align:center; max-width:580px; margin:0 auto 50px; }
+  .section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,32px); letter-spacing:-.01em; margin-top:14px; }
   .section-sub{ color:var(--text-muted); margin-top:12px; font-size:15px; }
-  .section-head.center{ text-align:center; margin-left:auto; margin-right:auto; }
 
-  /* -------- logo grande -------- */
-  .logo-showcase{ padding:20px 0 70px; text-align:center; }
-  .logo-showcase img{ max-width:230px; width:100%; margin:0 auto; filter: drop-shadow(0 0 40px rgba(31,147,242,.2)); }
-
-  /* -------- manifesto (origem, versão curta) -------- */
-  .manifesto{ padding:60px 0 90px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .manifesto-grid{ display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start; }
-  .manifesto-mark{ width:100%; max-width:180px; }
-  .manifesto-mark img{ filter: drop-shadow(0 0 30px rgba(31,147,242,.18)); }
-  .manifesto-text p{ font-size:17px; color:var(--text-muted); line-height:1.75; margin-bottom:16px; }
-  .manifesto-text p:last-child{ margin-bottom:0; }
-  .manifesto-text strong{ color:var(--text); font-weight:700; }
-  .manifesto-text .lead-line{ font-family:var(--display); font-weight:600; font-size:22px; color:var(--text); line-height:1.4; margin-bottom:18px; }
-  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:26px; }
-  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px 20px; }
+  /* -------- manifesto -------- */
+  .manifesto{ padding:70px 0 90px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); text-align:center; }
+  .manifesto-mark{ width:52px; height:52px; margin:0 auto 24px; opacity:.9; }
+  .manifesto-wrap{ max-width:640px; margin:0 auto; }
+  .manifesto-wrap .lead-line{ font-family:var(--display); font-weight:700; font-size:clamp(20px,2.8vw,26px); margin-bottom:20px; line-height:1.4; }
+  .manifesto-wrap p{ font-size:16px; color:var(--text-muted); line-height:1.8; margin-bottom:16px; }
+  .manifesto-wrap strong{ color:var(--text); font-weight:700; }
+  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; text-align:left; }
+  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:10px; padding:22px 20px; }
   .namesplit-card h4{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); margin-bottom:8px; }
   .namesplit-card p{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin:0; }
 
   /* -------- princípios -------- */
   .principios{ padding:90px 0; }
-  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .princ-card{ background:var(--surface); padding:32px 26px; }
-  .princ-num{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.15em; margin-bottom:20px; }
-  .princ-title{ font-family:var(--display); font-weight:600; font-size:19px; margin-bottom:10px; }
+  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .princ-card{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:12px; padding:30px 26px; }
+  .princ-num{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.15em; margin-bottom:18px; }
+  .princ-title{ font-family:var(--display); font-weight:700; font-size:19px; margin-bottom:10px; }
   .princ-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
 
   /* -------- portfolio -------- */
   .portfolio{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .pf-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s; }
-  .pf-card:hover{ border-color:var(--accent); transform:translateY(-3px); }
-  .pf-niche{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
-  .pf-name{ font-family:var(--display); font-weight:600; font-size:19px; }
-  .pf-loc{ font-size:12.5px; color:var(--text-faint); margin-top:-8px; }
-  .pf-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; flex:1; }
-  .pf-rating{ font-size:12.5px; color:var(--accent); font-weight:600; }
-  .pf-link{ font-size:13px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; padding-top:10px; border-top:1px solid var(--border); }
+  .pf-grid{ display:flex; flex-direction:column; gap:14px; }
+  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:26px 28px; display:flex; align-items:center; gap:24px; transition:border-color .2s; }
+  .pf-card:hover{ border-color:var(--accent); }
+  .pf-main{ flex:1; min-width:0; }
+  .pf-niche{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+  .pf-name{ font-family:var(--display); font-weight:700; font-size:19px; }
+  .pf-loc{ font-size:12.5px; color:var(--text-faint); margin-top:2px; }
+  .pf-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin-top:10px; max-width:560px; }
+  .pf-rating{ font-size:12.5px; color:var(--accent); font-weight:600; margin-top:8px; }
+  .pf-side{ flex:0 0 auto; text-align:right; }
+  .pf-link{ font-size:13px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border-strong); border-radius:8px; padding:9px 14px; }
+  .pf-link:hover{ border-color:var(--accent); color:var(--accent-2); }
 
-  /* -------- processo -------- */
+  /* -------- processo: timeline vertical -------- */
   .processo{ padding:90px 0; }
-  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; counter-reset:step; }
-  .step{ background:var(--surface); padding:26px 20px; }
-  .step::before{ counter-increment:step; content:counter(step,decimal-leading-zero); font-family:var(--mono); font-size:22px; font-weight:600; color:var(--accent); display:block; margin-bottom:14px; }
-  .step-title{ font-family:var(--display); font-weight:600; font-size:14.5px; margin-bottom:8px; }
-  .step-desc{ font-size:12.5px; color:var(--text-muted); line-height:1.55; }
+  .timeline{ max-width:640px; margin:0 auto; position:relative; }
+  .timeline::before{ content:""; position:absolute; left:19px; top:8px; bottom:8px; width:1px; background:linear-gradient(var(--border-strong), var(--border)); }
+  .tl-item{ position:relative; padding-left:56px; margin-bottom:34px; }
+  .tl-item:last-child{ margin-bottom:0; }
+  .tl-node{ position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%; background:var(--surface); border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--accent); }
+  .tl-title{ font-family:var(--display); font-weight:700; font-size:16.5px; margin-bottom:6px; padding-top:8px; }
+  .tl-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; }
 
   /* -------- formatos -------- */
   .formatos{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:820px; }
+  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:800px; margin:0 auto; }
   .formato-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; }
-  .formato-title{ font-family:var(--display); font-weight:600; font-size:18px; margin-bottom:10px; }
+  .formato-title{ font-family:var(--display); font-weight:700; font-size:18px; margin-bottom:10px; }
   .formato-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
 
   /* -------- investimento -------- */
-  .investimento{ padding:90px 0; }
-  .invest-card{ max-width:640px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:44px 40px; }
+  .investimento{ padding:90px 0; text-align:center; }
+  .invest-card{ max-width:600px; margin:0 auto; background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:14px; padding:46px 40px; }
   .invest-card p{ font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
   .invest-tag{ font-family:var(--display); font-weight:700; font-size:24px; color:var(--accent); margin:18px 0 22px; }
 
-  /* -------- social -------- */
-  .social{ padding:90px 0; border-top:1px solid var(--border); }
-  .social-row{ display:flex; gap:14px; flex-wrap:wrap; }
-  .social-card{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; transition:border-color .2s; }
-  .social-card:hover{ border-color:var(--accent); }
-  .social-ic{ width:22px; height:22px; flex:0 0 auto; }
-  .social-label{ text-align:left; }
-  .social-label .t{ font-weight:700; font-size:13.5px; }
-  .social-label .s{ font-size:11.5px; color:var(--text-faint); }
-
-  /* -------- final cta -------- */
-  .final-cta{ padding:100px 0 110px; }
-  .final-cta-card{ background:linear-gradient(135deg, var(--surface), var(--surface-2)); border:1px solid var(--border); border-radius:16px; padding:64px 40px; text-align:center; }
-  .final-cta h2{ font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,38px); margin-bottom:14px; }
-  .final-cta .section-sub{ max-width:460px; margin-left:auto; margin-right:auto; margin-bottom:32px; }
-
-  /* -------- modal: história completa -------- */
-  .modal-overlay{ position:fixed; inset:0; z-index:100; background:rgba(5,5,7,.78); backdrop-filter:blur(4px); display:none; align-items:flex-start; justify-content:center; padding:60px 20px; overflow-y:auto; }
-  .modal-overlay.open{ display:flex; }
-  .modal-panel{ background:var(--bg-1); border:1px solid var(--border-strong); border-radius:16px; max-width:680px; width:100%; padding:44px 40px 50px; position:relative; }
-  .modal-close{ position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text-muted); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .modal-close:hover{ color:var(--text); border-color:var(--accent); }
-  .story h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.6vw,32px); margin:6px 0 40px; }
-  .story p{ font-size:15.5px; color:var(--text-muted); line-height:1.8; margin-bottom:18px; }
-  .story p strong{ color:var(--text); font-weight:700; }
-  .story .beat{ font-family:var(--display); font-weight:600; font-size:17px; color:var(--text); text-align:center; margin:20px 0; line-height:1.5; }
-  .story h3{ font-family:var(--display); font-weight:700; font-size:19px; margin:44px 0 14px; text-align:center; }
-  .story .pull{ font-family:var(--display); font-weight:700; font-size:clamp(19px,2.8vw,24px); color:var(--accent); text-align:center; line-height:1.4; margin:40px 0 6px; }
-  .story .taglist{ display:flex; flex-wrap:wrap; justify-content:center; margin:24px 0; font-size:14.5px; color:var(--text); text-align:center; }
-  .story .taglist span:not(:last-child)::after{ content:" · "; color:var(--accent); }
-  .story .brandmark{ font-family:var(--mono); font-weight:700; font-size:clamp(16px,2.4vw,20px); letter-spacing:.2em; text-align:center; color:var(--text); margin:44px 0; }
+  /* -------- contato -------- */
+  .contato{ padding:90px 0 100px; border-top:1px solid var(--border); }
+  .contato-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:44px; max-width:860px; margin:0 auto; align-items:start; }
+  .contato-info{ display:flex; flex-direction:column; gap:22px; padding-top:6px; }
+  .contato-item{ display:flex; align-items:flex-start; gap:14px; }
+  .contato-item svg{ width:20px; height:20px; flex:0 0 auto; margin-top:2px; }
+  .contato-item .t{ font-weight:700; font-size:14.5px; }
+  .contato-item .s{ font-size:12.5px; color:var(--text-faint); margin-top:2px; }
+  .contato-form{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:14px; }
+  .contato-form input, .contato-form textarea{ background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:12px 14px; color:var(--text); font-family:inherit; font-size:14px; resize:vertical; }
+  .contato-form input:focus, .contato-form textarea:focus{ outline:none; border-color:var(--accent); }
+  .contato-form button{ border:none; cursor:pointer; }
 
   footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
   footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
 
+  /* -------- modal: história completa -------- */
+  .modal-overlay{ position:fixed; inset:0; z-index:100; background:rgba(4,4,6,.8); backdrop-filter:blur(4px); display:none; align-items:flex-start; justify-content:center; padding:60px 20px; overflow-y:auto; }
+  .modal-overlay.open{ display:flex; }
+  .modal-panel{ background:var(--bg-1); border:1px solid var(--border-strong); border-radius:16px; max-width:660px; width:100%; padding:44px 40px 50px; position:relative; }
+  .modal-close{ position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text-muted); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .modal-close:hover{ color:var(--text); border-color:var(--accent); }
+  .story h2{ font-family:var(--display); font-weight:700; font-size:clamp(22px,3.4vw,30px); margin:14px 0 40px; }
+  .story p{ font-size:15.5px; color:var(--text-muted); line-height:1.8; margin-bottom:18px; }
+  .story p strong{ color:var(--text); font-weight:700; }
+  .story .beat{ font-family:var(--display); font-weight:600; font-size:16.5px; color:var(--text); text-align:center; margin:20px 0; line-height:1.5; }
+  .story h3{ font-family:var(--display); font-weight:700; font-size:18px; margin:44px 0 14px; text-align:center; }
+  .story .pull{ font-family:var(--display); font-weight:700; font-size:clamp(18px,2.6vw,22px); color:var(--accent); text-align:center; line-height:1.4; margin:40px 0 6px; }
+  .story .taglist{ display:flex; flex-wrap:wrap; justify-content:center; margin:24px 0; font-size:14px; color:var(--text); text-align:center; }
+  .story .taglist span:not(:last-child)::after{ content:" · "; color:var(--accent); }
+  .story .brandmark{ font-family:var(--mono); font-weight:700; font-size:clamp(15px,2.2vw,18px); letter-spacing:.2em; text-align:center; color:var(--text); margin:44px 0; }
+
   @media (max-width:900px){
-    .princ-grid, .steps{ grid-template-columns:1fr; }
-    .pf-grid{ grid-template-columns:1fr 1fr; }
-    .formatos-grid{ grid-template-columns:1fr; }
-    .manifesto-grid{ grid-template-columns:1fr; }
-    .manifesto-mark{ max-width:100px; }
+    .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
   }
   @media (max-width:560px){
-    .pf-grid{ grid-template-columns:1fr; }
-    .namesplit{ grid-template-columns:1fr; }
-    .hero{ padding:64px 0 48px; }
-    .principios, .portfolio, .processo, .formatos, .investimento, .social{ padding-top:56px; padding-bottom:56px; }
-    .manifesto{ padding-top:44px; padding-bottom:56px; }
-    .logo-showcase{ padding-bottom:48px; }
-    .final-cta{ padding-top:70px; padding-bottom:80px; }
-    .final-cta-card{ padding:44px 24px; }
+    .namesplit, .formatos-grid, .contato-grid{ grid-template-columns:1fr; }
+    .hero{ padding:56px 0 48px; }
+    .hero-mark-ring{ width:140px; height:140px; }
+    .hero-mark{ width:74px; height:74px; }
+    .principios, .portfolio, .formatos, .investimento{ padding-top:56px; padding-bottom:56px; }
+    .processo{ padding:56px 0; }
+    .manifesto{ padding-top:48px; padding-bottom:56px; }
+    .contato{ padding-top:56px; padding-bottom:64px; }
     .invest-card{ padding:32px 24px; }
+    .pf-card{ flex-direction:column; align-items:flex-start; }
+    .pf-side{ text-align:left; }
     .modal-panel{ padding:36px 22px 40px; }
     .modal-overlay{ padding:28px 12px; }
   }
 </style>
 </head>
 <body>
-<div class="bg-grid"></div>
 <div class="bg-glow"></div>
 
 <nav>
@@ -212,7 +204,7 @@
     </div>
     <div class="nav-links">
       <button class="link-btn" id="btnSobre" type="button">Sobre</button>
-      <a href="#principios">Como trabalho</a>
+      <a href="#principios">Como trabalhamos</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#processo">Processo</a>
       <a href="#formatos">Formatos</a>
@@ -227,9 +219,10 @@
 <section class="hero">
   <div class="hero-bg-logo"><img src="logo-mark-dark.png" alt=""></div>
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="tag-row"><div class="eyebrow">Agência especializada em criação de sites</div></div>
-      <h1>Todo negócio tem um ponto onde tudo converge. <span class="hl">O seu começa aqui.</span></h1>
+    <div class="hero-content">
+      <div class="hero-mark-ring"><img src="logo-mark-dark.png" alt="Network Space" class="hero-mark"></div>
+      <div class="eyebrow">Agência especializada em criação de sites</div>
+      <h1>Todo negócio tem um ponto onde tudo converge. <span class="chrome-text">O seu começa aqui.</span></h1>
       <p class="lede">Sites profissionais com disciplina, foco e execução — do primeiro traço ao último detalhe. Sem template genérico, sem atalho.</p>
       <div class="hero-ctas">
         <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
@@ -247,34 +240,24 @@
   </div>
 </section>
 
-<section class="logo-showcase">
-  <div class="wrap">
-    <img src="logo-full-dark.png" alt="Network Space">
-  </div>
-</section>
-
 <section class="manifesto">
   <div class="wrap">
-    <div class="manifesto-grid">
-      <div class="manifesto-mark">
-        <img src="logo-mark-dark.png" alt="Network Space">
-      </div>
-      <div class="manifesto-text">
-        <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
-        <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
-        <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
-        <div class="namesplit">
-          <div class="namesplit-card">
-            <h4>NETWORK</h4>
-            <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
-          </div>
-          <div class="namesplit-card">
-            <h4>SPACE</h4>
-            <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
-          </div>
+    <div class="manifesto-wrap">
+      <img src="logo-mark-dark.png" alt="" class="manifesto-mark">
+      <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
+      <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
+      <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
+      <div class="namesplit">
+        <div class="namesplit-card">
+          <h4>NETWORK</h4>
+          <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
         </div>
-        <button class="link-btn accent-link" id="btnSobre2" type="button">Ler a história completa →</button>
+        <div class="namesplit-card">
+          <h4>SPACE</h4>
+          <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
+        </div>
       </div>
+      <button class="link-btn accent-link" id="btnSobre2" type="button">Ler a história completa →</button>
     </div>
   </div>
 </section>
@@ -282,6 +265,7 @@
 <section class="principios" id="principios">
   <div class="wrap">
     <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
       <div class="eyebrow">Como trabalhamos</div>
       <h2>Três princípios. Um resultado.</h2>
     </div>
@@ -308,33 +292,40 @@
 <section class="portfolio" id="portfolio">
   <div class="wrap">
     <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
       <div class="eyebrow">Prova real, não promessa</div>
       <h2>Projetos entregues, em nichos diferentes</h2>
       <p class="section-sub">Sem mockup fake. Estes são sites reais, no ar, de clientes reais.</p>
     </div>
     <div class="pf-grid">
       <div class="pf-card">
-        <div class="pf-niche">Ortodontia</div>
-        <div class="pf-name">Dr. Rafael Bertoletti</div>
-        <div class="pf-loc">Andradina · SP</div>
-        <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
-        <a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">rafaelbertoletti.com →</a>
+        <div class="pf-main">
+          <div class="pf-niche">Ortodontia</div>
+          <div class="pf-name">Dr. Rafael Bertoletti</div>
+          <div class="pf-loc">Andradina · SP</div>
+          <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
       <div class="pf-card">
-        <div class="pf-niche">Advocacia</div>
-        <div class="pf-name">Dra. Sandra Assis</div>
-        <div class="pf-loc">Salesópolis · SP</div>
-        <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
-        <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
-        <a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">sandra-assis-advocacia-site.vercel.app →</a>
+        <div class="pf-main">
+          <div class="pf-niche">Advocacia</div>
+          <div class="pf-name">Dra. Sandra Assis</div>
+          <div class="pf-loc">Salesópolis · SP</div>
+          <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
+          <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
       <div class="pf-card">
-        <div class="pf-niche">Odontologia · Prótese</div>
-        <div class="pf-name">Biliclin</div>
-        <div class="pf-loc">São Paulo · SP</div>
-        <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
-        <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
-        <a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">biliclinodontologia.com.br →</a>
+        <div class="pf-main">
+          <div class="pf-niche">Odontologia · Prótese</div>
+          <div class="pf-name">Biliclin</div>
+          <div class="pf-loc">São Paulo · SP</div>
+          <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
+          <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
     </div>
   </div>
@@ -343,15 +334,16 @@
 <section class="processo" id="processo">
   <div class="wrap">
     <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
       <div class="eyebrow">Como funciona</div>
       <h2>Do primeiro contato ao site no ar</h2>
     </div>
-    <div class="steps">
-      <div class="step"><div class="step-title">Contato</div><div class="step-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
-      <div class="step"><div class="step-title">Briefing</div><div class="step-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
-      <div class="step"><div class="step-title">Prévia</div><div class="step-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
-      <div class="step"><div class="step-title">Ajustes</div><div class="step-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
-      <div class="step"><div class="step-title">No ar</div><div class="step-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-node">1</div><div class="tl-title">Contato</div><div class="tl-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
+      <div class="tl-item"><div class="tl-node">2</div><div class="tl-title">Briefing</div><div class="tl-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
+      <div class="tl-item"><div class="tl-node">3</div><div class="tl-title">Prévia</div><div class="tl-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
+      <div class="tl-item"><div class="tl-node">4</div><div class="tl-title">Ajustes</div><div class="tl-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
+      <div class="tl-item"><div class="tl-node">5</div><div class="tl-title">No ar</div><div class="tl-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
     </div>
   </div>
 </section>
@@ -359,6 +351,7 @@
 <section class="formatos" id="formatos">
   <div class="wrap">
     <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
       <div class="eyebrow">Depois que o site fica pronto</div>
       <h2>Você escolhe como continua</h2>
       <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
@@ -380,7 +373,7 @@
   <div class="wrap">
     <div class="invest-card">
       <div class="eyebrow">Investimento</div>
-      <p>Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
+      <p style="margin-top:18px;">Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
       <div class="invest-tag">Valor a combinar.</div>
       <p>Conversamos, entendemos o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
       <div style="margin-top:22px;">
@@ -393,39 +386,42 @@
   </div>
 </section>
 
-<section class="social">
+<section class="contato" id="contato">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Acompanhe</div>
-      <h2>Bastidores e novidades</h2>
-    </div>
-    <div class="social-row">
-      <a class="social-card" href="https://www.instagram.com/weslei_ls/" target="_blank" rel="noopener">
-        <svg class="social-ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--accent)" stroke="none"/></svg>
-        <div class="social-label"><div class="t">@weslei_ls</div><div class="s">Instagram</div></div>
-      </a>
-      <a class="social-card" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
-        <svg class="social-ic" viewBox="0 0 24 24" fill="var(--wa)"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-        <div class="social-label"><div class="t">WhatsApp</div><div class="s">Fale agora</div></div>
-      </a>
-      <a class="social-card" href="mailto:contato@networkspace.com.br">
-        <svg class="social-ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>
-        <div class="social-label"><div class="t">contato@networkspace.com.br</div><div class="s">E-mail</div></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="wrap">
-    <div class="final-cta-card">
-      <div class="eyebrow" style="margin-bottom:18px;">Vamos começar</div>
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
+      <div class="eyebrow">Vamos começar</div>
       <h2>Seu negócio merece um site à altura.</h2>
-      <p class="section-sub">Sem compromisso, sem letra miúda. Só uma conversa pra entender o que você precisa.</p>
-      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener" style="display:inline-flex;">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-        Falar no WhatsApp agora
-      </a>
+      <p class="section-sub">Preenche os campos abaixo — sua mensagem já chega pronta no nosso WhatsApp.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <div class="contato-item">
+          <svg viewBox="0 0 24 24" fill="var(--wa)"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+          <div><div class="t">WhatsApp</div><div class="s">Resposta rápida, direto com a gente</div></div>
+        </div>
+        <div class="contato-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>
+          <div><div class="t">contato@networkspace.com.br</div><div class="s">E-mail</div></div>
+        </div>
+        <div class="contato-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><div class="t">Atendemos todo o Brasil</div><div class="s">100% remoto, do orçamento à entrega</div></div>
+        </div>
+        <div class="contato-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--accent)" stroke="none"/></svg>
+          <div><div class="t">@weslei_ls</div><div class="s">Instagram</div></div>
+        </div>
+      </div>
+      <form class="contato-form" id="contatoForm">
+        <input type="text" id="cf_nome" placeholder="Seu nome" required>
+        <input type="tel" id="cf_whats" placeholder="Seu WhatsApp" required>
+        <textarea id="cf_msg" rows="4" placeholder="Conta um pouco sobre o seu negócio..."></textarea>
+        <button type="submit" class="btn-wa big" style="justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+          Enviar no WhatsApp
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -509,6 +505,17 @@
     document.getElementById('modalClose').addEventListener('click', closeModal);
     overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+    var form = document.getElementById('contatoForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var nome = document.getElementById('cf_nome').value.trim();
+      var whats = document.getElementById('cf_whats').value.trim();
+      var msg = document.getElementById('cf_msg').value.trim();
+      var texto = 'Olá! Meu nome é ' + nome + ' (WhatsApp: ' + whats + ').';
+      if (msg) texto += ' ' + msg;
+      window.open('https://wa.me/5518991219270?text=' + encodeURIComponent(texto), '_blank');
+    });
   })();
 </script>
 
