@@ -8,175 +8,178 @@
 <link rel="icon" type="image/png" href="logo-mark-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#09090b; --bg-1:#0f0f12; --surface:#151519; --surface-2:#1c1c21; --surface-3:#26262d;
-    --border:#38383f; --border-strong:#4f4f58;
-    --text:#f3f3f5; --text-muted:#a9a9b2; --text-faint:#797982;
-    --accent:#1f93f2; --accent-soft:rgba(31,147,242,.14); --accent-ink:#08090c;
+    --bg:#09090b; --bg-1:#0f0f12; --surface:#141417; --surface-2:#1a1a1f; --surface-3:#232329;
+    --border:#2a2a30; --border-strong:#3d3d45;
+    --text:#f3f3f5; --text-muted:#a3a3ad; --text-faint:#6d6d76;
+    --accent:#1f93f2; --accent-2:#5ab6ff; --accent-soft:rgba(31,147,242,.12); --accent-ink:#08090c;
     --wa:#25d366;
-    --serif:'Fraunces', serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
+    --display:'Space Grotesk', sans-serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{ background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   a{ color:inherit; text-decoration:none; }
   img,svg{ max-width:100%; display:block; }
-  .serif{ font-family:var(--serif); }
   .mono{ font-family:var(--mono); }
-  .wrap{ max-width:1100px; margin:0 auto; padding:0 28px; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
 
+  /* fundo: grid de rede sutil, no clima da logo */
+  .bg-grid{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
   .bg-glow{ position:fixed; inset:0; z-index:0; pointer-events:none;
     background:
-      radial-gradient(700px 550px at 10% -10%, rgba(31,147,242,.11), transparent 60%),
-      radial-gradient(750px 600px at 100% 10%, rgba(31,147,242,.06), transparent 60%),
-      radial-gradient(600px 500px at 50% 100%, rgba(31,147,242,.05), transparent 60%);
-  }
-  .grain{ position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.03; mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      radial-gradient(560px 420px at 14% 0%, rgba(31,147,242,.14), transparent 62%),
+      radial-gradient(520px 400px at 100% 18%, rgba(31,147,242,.07), transparent 60%);
   }
 
   /* -------- nav -------- */
-  nav{ position:sticky; top:0; z-index:50; background:rgba(9,9,11,.75); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  nav{ position:sticky; top:0; z-index:50; background:rgba(9,9,11,.8); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
   nav .wrap{ display:flex; align-items:center; gap:14px; padding:14px 28px; }
   .brand{ display:flex; align-items:center; gap:10px; }
-  .brand-mark{ width:30px; height:30px; flex:0 0 auto; filter: drop-shadow(0 0 4px rgba(31,147,242,.5)); }
-  .brand-word{ font-weight:800; font-size:14px; letter-spacing:.8px; }
-  .brand-word span{ display:block; font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:1px; }
+  .brand-mark{ width:28px; height:28px; flex:0 0 auto; }
+  .brand-word{ font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em; }
+  .brand-word span{ display:block; font-family:var(--sans); font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
   .nav-links{ display:flex; gap:26px; margin-left:44px; font-size:13px; font-weight:600; color:var(--text-muted); }
   .nav-links a:hover{ color:var(--text); }
-  .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:999px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
+  .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:8px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
   .btn-wa:hover{ filter:brightness(1.07); transform:translateY(-1px); }
   .btn-wa svg{ width:15px; height:15px; }
-  .btn-wa.big{ padding:15px 28px; font-size:16px; }
-  .btn-ghost{ display:inline-flex; align-items:center; padding:15px 26px; border:1px solid var(--border); border-radius:999px; font-size:15px; font-weight:600; color:var(--text-muted); }
-  .btn-ghost:hover{ border-color:var(--border-strong); color:var(--text); }
+  .btn-wa.big{ padding:15px 26px; font-size:15.5px; border-radius:10px; }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:15px 24px; border:1px solid var(--border-strong); border-radius:10px; font-size:14.5px; font-weight:600; color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--accent); background:var(--accent-soft); }
 
   section{ position:relative; z-index:2; }
 
   /* -------- hero -------- */
-  .hero{ padding:110px 0 90px; text-align:center; }
-  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(31,147,242,.3); padding:7px 16px; border-radius:999px; margin-bottom:28px; }
-  .eyebrow::before{ content:"◆"; font-size:8px; }
-  h1{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(34px,5.6vw,60px); line-height:1.12; letter-spacing:-.01em; max-width:820px; margin:0 auto 22px; }
-  h1 em{ font-style:italic; color:var(--accent); }
-  .lede{ font-size:clamp(16px,2vw,18px); color:var(--text-muted); max-width:540px; margin:0 auto 40px; }
-  .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .hero{ padding:96px 0 64px; }
+  .hero-inner{ max-width:760px; }
+  .tag-row{ display:flex; align-items:center; gap:10px; margin-bottom:26px; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(31,147,242,.3); padding:7px 14px; border-radius:6px; }
+  .eyebrow::before{ content:"●"; font-size:7px; }
+  h1{ font-family:var(--display); font-weight:700; font-size:clamp(36px,6vw,58px); line-height:1.08; letter-spacing:-.02em; max-width:720px; margin-bottom:22px; }
+  h1 .hl{ color:var(--accent); }
+  .lede{ font-size:clamp(16px,2vw,18px); color:var(--text-muted); max-width:520px; margin-bottom:36px; }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-strip{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:56px; padding-top:26px; border-top:1px solid var(--border); }
+  .hero-strip span{ font-size:12.5px; color:var(--text-faint); display:flex; align-items:center; gap:8px; }
+  .hero-strip span::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
 
-  .section-head{ text-align:center; max-width:600px; margin:0 auto 56px; }
-  .section-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(26px,3.4vw,38px); letter-spacing:-.01em; margin-top:14px; }
-  .section-sub{ color:var(--text-muted); margin-top:14px; font-size:15.5px; }
+  .section-head{ max-width:600px; margin-bottom:48px; }
+  .section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,34px); letter-spacing:-.01em; margin-top:12px; }
+  .section-sub{ color:var(--text-muted); margin-top:12px; font-size:15px; }
+  .section-head.center{ text-align:center; margin-left:auto; margin-right:auto; }
 
   /* -------- logo grande -------- */
-  .logo-showcase{ padding:20px 0 90px; text-align:center; }
-  .logo-showcase img{ max-width:300px; width:100%; margin:0 auto; filter: drop-shadow(0 0 50px rgba(31,147,242,.22)); }
+  .logo-showcase{ padding:20px 0 70px; text-align:center; }
+  .logo-showcase img{ max-width:230px; width:100%; margin:0 auto; filter: drop-shadow(0 0 40px rgba(31,147,242,.2)); }
 
-  /* -------- a lenda -------- */
-  .lenda{ padding:20px 0 110px; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); background:linear-gradient(180deg, transparent, rgba(31,147,242,.035), transparent); }
-  .lenda-wrap{ max-width:680px; margin:0 auto; padding:0 28px; }
-  .lenda-title{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(26px,4vw,36px); text-align:center; margin:18px 0 56px; line-height:1.3; }
-  .lenda p{ font-size:16.5px; color:var(--text-muted); line-height:1.85; margin-bottom:20px; }
-  .lenda p strong{ color:var(--text); font-weight:700; }
-  .lenda .beat{ font-family:var(--serif); font-style:italic; font-size:19px; color:var(--text); text-align:center; margin:22px 0; line-height:1.5; }
-  .lenda h3{ font-family:var(--serif); font-weight:600; font-size:23px; margin:58px 0 18px; text-align:center; }
-  .lenda .pull{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(22px,3.2vw,30px); color:var(--accent); text-align:center; line-height:1.45; margin:54px 0 8px; }
-  .lenda .pull-final{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(24px,3.6vw,34px); text-align:center; line-height:1.45; margin:60px 0 10px; }
-  .lenda .pull-final strong{ color:var(--accent); font-weight:600; font-style:italic; }
-  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:50px 0; }
-  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px 24px; }
-  .namesplit-card h4{ font-family:var(--mono); font-size:13px; letter-spacing:.2em; color:var(--accent); margin-bottom:14px; }
-  .namesplit-card p{ font-size:14.5px; margin-bottom:10px; }
-  .namesplit-card p:last-child{ margin-bottom:0; }
-  .lenda .taglist{ display:flex; flex-wrap:wrap; justify-content:center; margin:30px 0; font-family:var(--serif); font-style:italic; font-size:17px; color:var(--text); text-align:center; }
-  .lenda .taglist span:not(:last-child)::after{ content:" · "; color:var(--accent); }
-  .lenda .brandmark{ font-family:var(--mono); font-weight:700; font-size:clamp(20px,3vw,28px); letter-spacing:.25em; text-align:center; color:var(--text); margin:60px 0; }
+  /* -------- manifesto (origem, versão curta) -------- */
+  .manifesto{ padding:60px 0 90px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .manifesto-grid{ display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start; }
+  .manifesto-mark{ width:100%; max-width:180px; }
+  .manifesto-mark img{ filter: drop-shadow(0 0 30px rgba(31,147,242,.18)); }
+  .manifesto-text p{ font-size:17px; color:var(--text-muted); line-height:1.75; margin-bottom:16px; }
+  .manifesto-text p:last-child{ margin-bottom:0; }
+  .manifesto-text strong{ color:var(--text); font-weight:700; }
+  .manifesto-text .lead-line{ font-family:var(--display); font-weight:600; font-size:22px; color:var(--text); line-height:1.4; margin-bottom:18px; }
+  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:26px; }
+  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px 20px; }
+  .namesplit-card h4{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); margin-bottom:8px; }
+  .namesplit-card p{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin:0; }
 
   /* -------- princípios -------- */
-  .principios{ padding:90px 0; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); background:linear-gradient(180deg, transparent, rgba(31,147,242,.04), transparent); }
-  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-  .princ-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:34px 26px; text-align:center; }
-  .princ-ic{ width:52px; height:52px; margin:0 auto 22px; }
-  .princ-ic line, .princ-ic circle{ stroke:var(--accent); fill:none; stroke-linecap:round; stroke-width:3; }
-  .princ-ic .blade{ fill:var(--accent); stroke:none; }
-  .princ-num{ font-family:var(--mono); font-size:11px; color:var(--text-faint); letter-spacing:.15em; margin-bottom:8px; }
-  .princ-title{ font-family:var(--serif); font-weight:600; font-size:21px; margin-bottom:12px; }
-  .princ-desc{ font-size:14.5px; color:var(--text-muted); line-height:1.65; }
+  .principios{ padding:90px 0; }
+  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .princ-card{ background:var(--surface); padding:32px 26px; }
+  .princ-num{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.15em; margin-bottom:20px; }
+  .princ-title{ font-family:var(--display); font-weight:600; font-size:19px; margin-bottom:10px; }
+  .princ-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
 
   /* -------- portfolio -------- */
-  .portfolio{ padding:100px 0; }
-  .pf-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
-  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:18px; overflow:hidden; transition:border-color .25s, transform .25s; }
-  .pf-card:hover{ border-color:rgba(31,147,242,.45); transform:translateY(-4px); }
-  .pf-chrome{ display:flex; align-items:center; gap:6px; padding:13px 16px; border-bottom:1px solid var(--border); }
-  .pf-dot{ width:8px; height:8px; border-radius:50%; background:var(--border-strong); }
-  .pf-url{ margin-left:10px; font-family:var(--mono); font-size:11px; color:var(--text-faint); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .pf-preview{ padding:44px 24px; text-align:center; background:linear-gradient(160deg,#1c1c22,#0c0c0e); }
-  .pf-niche{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
-  .pf-name{ font-family:var(--serif); font-weight:600; font-size:24px; margin-bottom:6px; }
-  .pf-loc{ font-size:13.5px; color:var(--text-faint); }
-  .pf-body{ padding:22px 26px 26px; }
-  .pf-desc{ font-size:14.5px; color:var(--text-muted); margin-bottom:18px; line-height:1.6; }
-  .pf-rating{ font-size:13.5px; color:var(--accent); margin-bottom:18px; font-weight:600; }
-  .pf-link{ font-size:14px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid var(--accent); padding-bottom:2px; }
+  .portfolio{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .pf-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s; }
+  .pf-card:hover{ border-color:var(--accent); transform:translateY(-3px); }
+  .pf-niche{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+  .pf-name{ font-family:var(--display); font-weight:600; font-size:19px; }
+  .pf-loc{ font-size:12.5px; color:var(--text-faint); margin-top:-8px; }
+  .pf-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; flex:1; }
+  .pf-rating{ font-size:12.5px; color:var(--accent); font-weight:600; }
+  .pf-link{ font-size:13px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; padding-top:10px; border-top:1px solid var(--border); }
 
   /* -------- processo -------- */
-  .processo{ padding:100px 0; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); }
-  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; counter-reset:step; }
-  .step{ position:relative; padding-top:8px; }
-  .step::before{ counter-increment:step; content:counter(step,decimal-leading-zero); font-family:var(--mono); font-size:26px; font-weight:600; color:var(--accent); display:block; margin-bottom:14px; opacity:.85; }
-  .step-title{ font-weight:700; font-size:14.5px; margin-bottom:8px; }
-  .step-desc{ font-size:13px; color:var(--text-muted); line-height:1.55; }
+  .processo{ padding:90px 0; }
+  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; counter-reset:step; }
+  .step{ background:var(--surface); padding:26px 20px; }
+  .step::before{ counter-increment:step; content:counter(step,decimal-leading-zero); font-family:var(--mono); font-size:22px; font-weight:600; color:var(--accent); display:block; margin-bottom:14px; }
+  .step-title{ font-family:var(--display); font-weight:600; font-size:14.5px; margin-bottom:8px; }
+  .step-desc{ font-size:12.5px; color:var(--text-muted); line-height:1.55; }
 
   /* -------- formatos -------- */
-  .formatos{ padding:90px 0; border-top:1px solid var(--border-strong); }
-  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:820px; margin:0 auto; }
-  .formato-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:30px 28px; }
-  .formato-title{ font-family:var(--serif); font-weight:600; font-size:19px; margin-bottom:12px; }
-  .formato-desc{ font-size:14.5px; color:var(--text-muted); line-height:1.65; }
+  .formatos{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:820px; }
+  .formato-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; }
+  .formato-title{ font-family:var(--display); font-weight:600; font-size:18px; margin-bottom:10px; }
+  .formato-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
 
   /* -------- investimento -------- */
-  .investimento{ padding:90px 0; text-align:center; }
-  .invest-card{ max-width:560px; margin:0 auto; background:var(--surface); border:1px solid rgba(31,147,242,.4); border-radius:20px; padding:46px 40px; box-shadow:0 0 50px rgba(31,147,242,.08); }
-  .invest-card p{ font-size:15.5px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
-  .invest-tag{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:24px; color:var(--accent); margin:20px 0 26px; }
+  .investimento{ padding:90px 0; }
+  .invest-card{ max-width:640px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:44px 40px; }
+  .invest-card p{ font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
+  .invest-tag{ font-family:var(--display); font-weight:700; font-size:24px; color:var(--accent); margin:18px 0 22px; }
 
   /* -------- social -------- */
-  .social{ padding:90px 0; text-align:center; }
-  .social-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:8px; }
-  .social-card{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 24px; transition:border-color .2s, transform .2s; }
-  .social-card:hover{ border-color:rgba(31,147,242,.45); transform:translateY(-2px); }
-  .social-ic{ width:24px; height:24px; flex:0 0 auto; }
+  .social{ padding:90px 0; border-top:1px solid var(--border); }
+  .social-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .social-card{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; transition:border-color .2s; }
+  .social-card:hover{ border-color:var(--accent); }
+  .social-ic{ width:22px; height:22px; flex:0 0 auto; }
   .social-label{ text-align:left; }
-  .social-label .t{ font-weight:700; font-size:14px; }
-  .social-label .s{ font-size:12px; color:var(--text-faint); }
+  .social-label .t{ font-weight:700; font-size:13.5px; }
+  .social-label .s{ font-size:11.5px; color:var(--text-faint); }
 
   /* -------- final cta -------- */
-  .final-cta{ padding:110px 0 100px; text-align:center; }
-  .final-cta h2{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:clamp(28px,4vw,42px); margin-bottom:16px; }
-  .final-cta .section-sub{ margin-bottom:38px; }
+  .final-cta{ padding:100px 0 110px; }
+  .final-cta-card{ background:linear-gradient(135deg, var(--surface), var(--surface-2)); border:1px solid var(--border); border-radius:16px; padding:64px 40px; text-align:center; }
+  .final-cta h2{ font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,38px); margin-bottom:14px; }
+  .final-cta .section-sub{ max-width:460px; margin-left:auto; margin-right:auto; margin-bottom:32px; }
 
-  footer{ padding:36px 0; text-align:center; font-size:13px; color:var(--text-faint); border-top:1px solid var(--border); }
-  footer .fmark{ width:18px; height:18px; display:inline-block; vertical-align:-4px; margin-right:6px; opacity:.7; }
+  footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
+  footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
 
   @media (max-width:900px){
-    .princ-grid, .pf-grid, .formatos-grid, .namesplit{ grid-template-columns:1fr; }
-    .steps{ grid-template-columns:1fr 1fr; }
+    .princ-grid, .steps{ grid-template-columns:1fr; }
+    .pf-grid{ grid-template-columns:1fr 1fr; }
+    .formatos-grid{ grid-template-columns:1fr; }
+    .manifesto-grid{ grid-template-columns:1fr; }
+    .manifesto-mark{ max-width:100px; }
     .nav-links{ display:none; }
   }
-  @media (max-width:520px){
-    .steps{ grid-template-columns:1fr; }
-    .hero{ padding:80px 0 60px; }
-    .principios, .portfolio, .processo, .formatos, .investimento, .social, .final-cta{ padding-top:64px; padding-bottom:64px; }
-    .lenda{ padding-top:50px; padding-bottom:64px; }
-    .logo-showcase{ padding-bottom:60px; }
-    .invest-card{ padding:34px 24px; }
+  @media (max-width:560px){
+    .pf-grid{ grid-template-columns:1fr; }
+    .namesplit{ grid-template-columns:1fr; }
+    .hero{ padding:64px 0 48px; }
+    .principios, .portfolio, .processo, .formatos, .investimento, .social{ padding-top:56px; padding-bottom:56px; }
+    .manifesto{ padding-top:44px; padding-bottom:56px; }
+    .logo-showcase{ padding-bottom:48px; }
+    .final-cta{ padding-top:70px; padding-bottom:80px; }
+    .final-cta-card{ padding:44px 24px; }
+    .invest-card{ padding:32px 24px; }
   }
 </style>
 </head>
 <body>
+<div class="bg-grid"></div>
 <div class="bg-glow"></div>
-<div class="grain"></div>
 
 <nav>
   <div class="wrap">
@@ -185,7 +188,6 @@
       <div class="brand-word">NETWORK SPACE<span>Agência de Sites</span></div>
     </div>
     <div class="nav-links">
-      <a href="#lenda">Nossa história</a>
       <a href="#principios">Como trabalho</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#processo">Processo</a>
@@ -200,15 +202,22 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Agência especializada em criação de sites</div>
-    <h1>Todo negócio tem um ponto onde tudo converge. <em>O seu começa aqui.</em></h1>
-    <p class="lede">Crio sites profissionais com disciplina, foco e execução — do primeiro traço ao último detalhe. Sem template genérico, sem atalho.</p>
-    <div class="hero-ctas">
-      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-        Falar no WhatsApp
-      </a>
-      <a class="btn-ghost" href="#portfolio">Ver portfólio</a>
+    <div class="hero-inner">
+      <div class="tag-row"><div class="eyebrow">Agência especializada em criação de sites</div></div>
+      <h1>Todo negócio tem um ponto onde tudo converge. <span class="hl">O seu começa aqui.</span></h1>
+      <p class="lede">Sites profissionais com disciplina, foco e execução — do primeiro traço ao último detalhe. Sem template genérico, sem atalho.</p>
+      <div class="hero-ctas">
+        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a class="btn-ghost" href="#portfolio">Ver portfólio</a>
+      </div>
+      <div class="hero-strip">
+        <span>Sites reais, no ar</span>
+        <span>Domínio e hospedagem na sua conta</span>
+        <span>Suporte direto com quem constrói</span>
+      </div>
     </div>
   </div>
 </section>
@@ -219,79 +228,28 @@
   </div>
 </section>
 
-<section class="lenda" id="lenda">
-  <div class="lenda-wrap">
-    <div class="section-head" style="margin-bottom:8px;">
-      <div class="eyebrow">A origem da marca</div>
-    </div>
-    <h2 class="lenda-title">A lenda do lobo da Network Space</h2>
-
-    <p>Antes de existir a Network Space, existia apenas um lobo.</p>
-    <p class="beat">Não era o maior.<br>Não era o mais rápido.<br>Não era o mais feroz.</p>
-    <p class="beat">Era apenas aquele que enxergava mais longe.</p>
-    <p>Enquanto os outros lobos procuravam o próximo caminho, ele procurava aquilo que existia depois dele. Enquanto a matilha seguia rastros conhecidos, ele parava diante do desconhecido.</p>
-    <p class="beat">E foi assim que, certa noite, ele deixou a floresta.<br>Não porque estivesse perdido.</p>
-    <p>Mas porque percebeu uma coisa que ninguém havia percebido antes:</p>
-    <p class="pull">o mundo era muito maior do que a sua própria matilha.</p>
-
-    <p>Ele caminhou durante dias. Atravessou montanhas, rios e cidades. Até chegar a um lugar onde milhares de luzes brilhavam no horizonte.</p>
-    <p>Ali, ele encontrou algo que nunca tinha visto.</p>
-    <p class="beat">Pessoas.<br>Milhares delas.</p>
-    <p>Cada uma carregando uma ideia. Uma pequena empresa. Um sonho. Uma habilidade. Uma história.</p>
-    <p>Algumas tinham grandes planos, mas ninguém as conhecia. Outras tinham produtos incríveis, mas não sabiam como mostrá-los. Algumas trabalhavam todos os dias para construir alguma coisa, enquanto permaneciam invisíveis para o mundo.</p>
-    <p class="beat">O lobo observou tudo em silêncio.<br>E entendeu.</p>
-
-    <p class="beat"><strong>O problema não era falta de talento.</strong><br>Era falta de conexão.</p>
-    <p>Havia pessoas procurando pessoas. Empresas procurando clientes. Ideias procurando espaço. Sonhos procurando uma oportunidade.</p>
-    <p class="beat">Tudo estava ali.<br>Mas estava separado.</p>
-
-    <p>Então o lobo fez aquilo que sempre soube fazer. Ele reuniu a matilha. Mas dessa vez a matilha seria diferente. Não seria formada apenas por lobos. Seria formada por <strong>pessoas</strong>.</p>
-    <div class="taglist"><span>Designers</span><span>Desenvolvedores</span><span>Estrategistas</span><span>Empreendedores</span><span>Criadores</span><span>Comerciantes</span><span>Profissionais</span></div>
-    <p>E, principalmente, pessoas que se recusavam a aceitar que seus sonhos deveriam permanecer pequenos.</p>
-
-    <p class="pull">Foi assim que nasceu a Network Space.</p>
-    <p>Não como uma agência. Não como uma empresa de sites. E muito menos como mais uma marca tentando disputar atenção na internet.</p>
-    <p class="beat">A Network Space nasceu como um <strong>ponto de encontro</strong>.</p>
-    <p>Um espaço onde pessoas e negócios se conectam ao mundo. Onde uma ideia deixa de existir apenas na cabeça de alguém e ganha forma. Onde uma empresa que ninguém conhecia passa a ser encontrada. Onde um pequeno negócio pode construir uma presença tão forte quanto uma grande empresa. Onde tecnologia, criatividade e pessoas deixam de trabalhar separadas. E começam a trabalhar juntas.</p>
-
-    <h3>O lobo nunca esteve sozinho</h3>
-    <p>Essa é a parte que quase ninguém entende. O lobo não representa a solidão. Representa <strong>a liderança que sabe reunir</strong>.</p>
-    <p class="beat">Um lobo sozinho pode sobreviver.<br>Mas uma matilha pode mudar o destino de uma floresta.</p>
-    <p>Por isso, na Network Space, ninguém é apenas cliente. Ninguém é apenas funcionário. Ninguém é apenas parceiro.</p>
-    <p class="pull">Todos fazem parte da rede.</p>
-    <p>Porque uma rede é mais forte quando cada pessoa acrescenta alguma coisa.</p>
-    <div class="taglist"><span>Uma ideia</span><span>Uma habilidade</span><span>Uma oportunidade</span><span>Uma conexão</span><span>Uma indicação</span><span>Uma história</span><span>Um sonho</span></div>
-    <p>E quanto mais pessoas entram, mais forte a rede se torna.</p>
-
-    <div class="namesplit">
-      <div class="namesplit-card">
-        <h4>NETWORK</h4>
-        <p>Porque ninguém constrói algo extraordinário completamente sozinho. Toda grande empresa começou com uma pessoa. Mas nenhuma grande empresa chegou longe sem outras pessoas.</p>
-        <p>A Network Space acredita no poder das conexões: negócios a pessoas, pessoas a oportunidades, ideias a tecnologia, empresas ao mundo.</p>
+<section class="manifesto">
+  <div class="wrap">
+    <div class="manifesto-grid">
+      <div class="manifesto-mark">
+        <img src="logo-mark-dark.png" alt="Network Space">
       </div>
-      <div class="namesplit-card">
-        <h4>SPACE</h4>
-        <p>Porque toda ideia precisa de espaço para crescer. Espaço para aparecer, para ser encontrada, para evoluir, para se tornar maior do que era ontem.</p>
-        <p>A internet é esse espaço. E a Network Space existe pra ajudar empresas a ocupá-lo.</p>
+      <div class="manifesto-text">
+        <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
+        <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
+        <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
+        <div class="namesplit">
+          <div class="namesplit-card">
+            <h4>NETWORK</h4>
+            <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
+          </div>
+          <div class="namesplit-card">
+            <h4>SPACE</h4>
+            <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <h3>E o lobo?</h3>
-    <p class="beat">O lobo continua caminhando.</p>
-    <p>Mas agora ele não procura um lugar para pertencer. Ele procura <strong>quem ainda está perdido no caminho</strong>.</p>
-    <p>Aquele pequeno empresário que trabalha todos os dias e ninguém conhece. Aquela pessoa que tem uma ideia extraordinária, mas não sabe por onde começar. Aquele profissional que sabe fazer, mas não sabe mostrar. Aquela empresa que tem potencial para crescer, mas ainda está invisível.</p>
-    <p>Quando encontra alguém assim, ele não passa reto.</p>
-    <p class="beat">Ele para.<br>Olha.<br>E estende a mão.</p>
-    <p>Porque a missão nunca foi encontrar os melhores.</p>
-    <p class="pull">A missão é ajudar pessoas comuns a construírem coisas extraordinárias.</p>
-
-    <p>E é por isso que, quando alguém entra para a Network Space, não está simplesmente contratando uma empresa.</p>
-    <p class="beat">Está entrando para uma rede.<br>Uma matilha.<br>Um espaço onde ideias encontram pessoas, onde pessoas encontram oportunidades, e onde negócios encontram o mundo.</p>
-
-    <div class="brandmark">NETWORK SPACE</div>
-
-    <p class="pull-final">Não estamos aqui apenas para criar presença.<br><strong>Estamos aqui para criar conexões.</strong></p>
-    <p style="text-align:center;">E toda grande história começa quando alguém decide não caminhar sozinho.</p>
   </div>
 </section>
 
@@ -303,32 +261,16 @@
     </div>
     <div class="princ-grid">
       <div class="princ-card">
-        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="22" cy="32" r="5"/>
-          <line x1="38" y1="32" x2="98" y2="32"/>
-          <circle cx="22" cy="60" r="5"/>
-          <line x1="38" y1="60" x2="98" y2="60"/>
-          <circle cx="22" cy="88" r="5"/>
-          <line x1="38" y1="88" x2="76" y2="88"/>
-        </svg>
         <div class="princ-num">01</div>
         <div class="princ-title">Disciplina</div>
         <div class="princ-desc">Processo estruturado, prazos que eu cumpro e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
       </div>
       <div class="princ-card">
-        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="38"/>
-          <circle cx="60" cy="60" r="22"/>
-          <circle class="blade" cx="60" cy="60" r="6"/>
-        </svg>
         <div class="princ-num">02</div>
         <div class="princ-title">Foco</div>
         <div class="princ-desc">Cada site é pensado pro seu negócio específico — o que você vende, pra quem, e o que faz alguém escolher você. Nada de solução genérica.</div>
       </div>
       <div class="princ-card">
-        <svg class="princ-ic" viewBox="0 0 120 120" aria-hidden="true">
-          <path class="blade" d="M 68 15 L 32 68 L 55 68 L 48 105 L 90 50 L 65 50 Z"/>
-        </svg>
         <div class="princ-num">03</div>
         <div class="princ-title">Execução</div>
         <div class="princ-desc">Do design ao ar, sem enrolação. Acompanho pessoalmente cada etapa até seu site sair do papel e ganhar vida na internet.</div>
@@ -346,42 +288,27 @@
     </div>
     <div class="pf-grid">
       <div class="pf-card">
-        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">rafaelbertoletti.com</div></div>
-        <div class="pf-preview">
-          <div class="pf-niche">Ortodontia</div>
-          <div class="pf-name">Dr. Rafael Bertoletti</div>
-          <div class="pf-loc">Andradina · SP</div>
-        </div>
-        <div class="pf-body">
-          <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
-          <a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">Visitar site →</a>
-        </div>
+        <div class="pf-niche">Ortodontia</div>
+        <div class="pf-name">Dr. Rafael Bertoletti</div>
+        <div class="pf-loc">Andradina · SP</div>
+        <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
+        <a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">rafaelbertoletti.com →</a>
       </div>
       <div class="pf-card">
-        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">sandra-assis-advocacia-site.vercel.app</div></div>
-        <div class="pf-preview">
-          <div class="pf-niche">Advocacia</div>
-          <div class="pf-name">Dra. Sandra Assis</div>
-          <div class="pf-loc">Salesópolis · SP</div>
-        </div>
-        <div class="pf-body">
-          <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
-          <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
-          <a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a>
-        </div>
+        <div class="pf-niche">Advocacia</div>
+        <div class="pf-name">Dra. Sandra Assis</div>
+        <div class="pf-loc">Salesópolis · SP</div>
+        <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
+        <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
+        <a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">sandra-assis-advocacia-site.vercel.app →</a>
       </div>
       <div class="pf-card">
-        <div class="pf-chrome"><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-dot"></div><div class="pf-url">biliclinodontologia.com.br</div></div>
-        <div class="pf-preview">
-          <div class="pf-niche">Odontologia · Prótese</div>
-          <div class="pf-name">Biliclin</div>
-          <div class="pf-loc">São Paulo · SP</div>
-        </div>
-        <div class="pf-body">
-          <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
-          <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
-          <a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a>
-        </div>
+        <div class="pf-niche">Odontologia · Prótese</div>
+        <div class="pf-name">Biliclin</div>
+        <div class="pf-loc">São Paulo · SP</div>
+        <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
+        <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
+        <a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">biliclinodontologia.com.br →</a>
       </div>
     </div>
   </div>
@@ -430,7 +357,7 @@
       <p>Não trabalho com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
       <div class="invest-tag">Valor a combinar.</div>
       <p>Conversamos, eu entendo o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
-      <div style="margin-top:26px;">
+      <div style="margin-top:22px;">
         <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
           Vamos conversar
@@ -461,13 +388,15 @@
 
 <section class="final-cta">
   <div class="wrap">
-    <div class="eyebrow">Vamos começar</div>
-    <h2>Seu negócio merece um site à altura.</h2>
-    <p class="section-sub">Sem compromisso, sem letra miúda. Só uma conversa pra entender o que você precisa.</p>
-    <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-      Falar no WhatsApp agora
-    </a>
+    <div class="final-cta-card">
+      <div class="eyebrow" style="margin-bottom:18px;">Vamos começar</div>
+      <h2>Seu negócio merece um site à altura.</h2>
+      <p class="section-sub">Sem compromisso, sem letra miúda. Só uma conversa pra entender o que você precisa.</p>
+      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener" style="display:inline-flex;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+    </div>
   </div>
 </section>
 
