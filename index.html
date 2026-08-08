@@ -60,8 +60,10 @@
   section{ position:relative; z-index:2; }
 
   /* -------- hero -------- */
-  .hero{ padding:80px 0 70px; text-align:center; position:relative; overflow:hidden; }
-  .hero-bg-logo{ position:absolute; top:46%; left:50%; transform:translate(-50%,-50%); width:min(1000px,140vw); pointer-events:none; z-index:0; opacity:.07; }
+  .hero{ padding:120px 0 70px; text-align:center; position:relative; overflow:hidden; }
+  .hero-bg-photo{ position:absolute; inset:0; z-index:0; }
+  .hero-bg-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 35%; display:block; }
+  .hero-bg-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,10,.35) 0%, rgba(8,8,10,.72) 60%, var(--bg) 96%); }
   .hero-content{ position:relative; z-index:1; }
   .hero-mark-ring{ width:180px; height:180px; margin:0 auto 30px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center;
     background: radial-gradient(circle at 50% 50%, rgba(31,147,242,.16), transparent 70%);
@@ -83,9 +85,12 @@
   .section-sub{ color:var(--text-muted); margin-top:12px; font-size:15px; }
 
   /* -------- manifesto -------- */
-  .manifesto{ padding:70px 0 90px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); text-align:center; }
-  .manifesto-mark{ width:52px; height:52px; margin:0 auto 24px; opacity:.9; }
-  .manifesto-wrap{ max-width:640px; margin:0 auto; }
+  .manifesto{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .manifesto-grid{ display:grid; grid-template-columns:1fr 1.05fr; gap:60px; align-items:center; }
+  .manifesto-photo{ position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--border-strong); aspect-ratio:1/1; box-shadow:0 40px 80px -30px rgba(0,0,0,.65), 0 0 50px rgba(31,147,242,.1); }
+  .manifesto-photo img{ width:100%; height:100%; object-fit:cover; object-position:68% 32%; display:block; }
+  .manifesto-mark{ width:44px; height:44px; margin-bottom:20px; opacity:.9; }
+  .manifesto-wrap{ max-width:520px; }
   .manifesto-wrap .lead-line{ font-family:var(--display); font-weight:700; font-size:clamp(20px,2.8vw,26px); margin-bottom:20px; line-height:1.4; }
   .manifesto-wrap p{ font-size:16px; color:var(--text-muted); line-height:1.8; margin-bottom:16px; }
   .manifesto-wrap strong{ color:var(--text); font-weight:700; }
@@ -143,7 +148,11 @@
   .invest-tag{ font-family:var(--display); font-weight:700; font-size:24px; color:var(--accent); margin:18px 0 22px; }
 
   /* -------- contato -------- */
-  .contato{ padding:90px 0 100px; border-top:1px solid var(--border); }
+  .contato{ padding:90px 0 100px; border-top:1px solid var(--border); position:relative; overflow:hidden; }
+  .contato-bg-photo{ position:absolute; inset:0; z-index:0; }
+  .contato-bg-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:.5; }
+  .contato-bg-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, var(--bg) 0%, rgba(8,8,10,.55) 30%, rgba(8,8,10,.55) 70%, var(--bg) 100%); }
+  .contato .wrap{ position:relative; z-index:1; }
   .contato-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:44px; max-width:860px; margin:0 auto; align-items:start; }
   .contato-info{ display:flex; flex-direction:column; gap:22px; padding-top:6px; }
   .contato-item{ display:flex; align-items:flex-start; gap:14px; }
@@ -177,6 +186,8 @@
   @media (max-width:900px){
     .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
+    .manifesto-grid{ grid-template-columns:1fr; gap:36px; }
+    .manifesto-photo{ aspect-ratio:16/9; order:-1; }
   }
   @media (max-width:560px){
     .namesplit, .formatos-grid, .contato-grid{ grid-template-columns:1fr; }
@@ -220,7 +231,7 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-bg-logo"><img src="logo-mark-dark.png" alt=""></div>
+  <div class="hero-bg-photo"><img src="assets/hero-bg.jpg" alt=""></div>
   <div class="wrap">
     <div class="hero-content">
       <div class="hero-mark-ring"><img src="logo-mark-dark.png" alt="Network Space" class="hero-mark"></div>
@@ -245,22 +256,25 @@
 
 <section class="manifesto">
   <div class="wrap">
-    <div class="manifesto-wrap">
-      <img src="logo-mark-dark.png" alt="" class="manifesto-mark">
-      <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
-      <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
-      <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
-      <div class="namesplit">
-        <div class="namesplit-card">
-          <h4>NETWORK</h4>
-          <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
+    <div class="manifesto-grid">
+      <div class="manifesto-wrap">
+        <img src="logo-mark-dark.png" alt="" class="manifesto-mark">
+        <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
+        <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
+        <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
+        <div class="namesplit">
+          <div class="namesplit-card">
+            <h4>NETWORK</h4>
+            <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
+          </div>
+          <div class="namesplit-card">
+            <h4>SPACE</h4>
+            <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
+          </div>
         </div>
-        <div class="namesplit-card">
-          <h4>SPACE</h4>
-          <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
-        </div>
+        <button class="link-btn accent-link" id="btnSobre2" type="button">Ler a história completa →</button>
       </div>
-      <button class="link-btn accent-link" id="btnSobre2" type="button">Ler a história completa →</button>
+      <div class="manifesto-photo"><img src="assets/manifesto-bg.jpg" alt="Network Space"></div>
     </div>
   </div>
 </section>
@@ -393,6 +407,7 @@
 </section>
 
 <section class="contato" id="contato">
+  <div class="contato-bg-photo"><img src="assets/cta-bg.jpg" alt=""></div>
   <div class="wrap">
     <div class="section-head">
       <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
