@@ -176,6 +176,17 @@
   footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
   footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
 
+  /* -------- music toggle -------- */
+  .music-toggle{ position:fixed; right:18px; bottom:18px; z-index:80; display:flex; align-items:center; gap:9px; background:rgba(19,19,22,.88); backdrop-filter:blur(10px); border:1px solid var(--border-strong); border-radius:999px; padding:10px 16px 10px 13px; color:var(--text); font-size:12px; font-weight:600; font-family:inherit; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.6); transition:border-color .2s, transform .2s; }
+  .music-toggle:hover{ border-color:var(--accent); transform:translateY(-2px); }
+  .music-bars{ display:flex; align-items:flex-end; gap:2px; width:14px; height:13px; flex:0 0 auto; }
+  .music-bars span{ width:3px; background:var(--accent); border-radius:1px; height:3px; }
+  .music-toggle.playing .music-bars span{ animation:musicBar .9s ease-in-out infinite; }
+  .music-bars span:nth-child(1){ animation-delay:0s; }
+  .music-bars span:nth-child(2){ animation-delay:.2s; }
+  .music-bars span:nth-child(3){ animation-delay:.4s; }
+  @keyframes musicBar{ 0%,100%{ height:3px; } 50%{ height:13px; } }
+
   @media (max-width:900px){
     .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
@@ -184,6 +195,7 @@
     .pf-mini-grid{ grid-template-columns:1fr; }
   }
   @media (max-width:560px){
+    .music-toggle{ right:12px; bottom:12px; padding:9px 14px 9px 11px; font-size:11px; }
     .namesplit, .formatos-grid, .contato-grid{ grid-template-columns:1fr; }
     .hero{ padding:56px 0 48px; }
     .hero-mark-ring{ width:160px; height:160px; }
@@ -356,6 +368,40 @@
   <img src="logo-mark-dark.png" alt="Network Space" class="fmark">
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
+
+<audio id="bgMusic" src="assets/trilha-fundo.mp3" loop preload="auto"></audio>
+<button class="music-toggle" id="musicToggle" type="button" aria-label="Tocar música de fundo">
+  <span class="music-bars"><span></span><span></span><span></span></span>
+  <span class="music-label">Tocar música</span>
+</button>
+
+<script>
+  (function(){
+    var audio = document.getElementById('bgMusic');
+    var btn = document.getElementById('musicToggle');
+    if(!audio || !btn) return;
+    var label = btn.querySelector('.music-label');
+    var userPaused = false;
+    audio.volume = 0.35;
+    function setPlaying(playing){
+      btn.classList.toggle('playing', playing);
+      label.textContent = playing ? 'Música' : 'Tocar música';
+    }
+    function tryAutoplay(){
+      if(userPaused || !audio.paused) return;
+      audio.play().then(function(){ setPlaying(true); }).catch(function(){});
+    }
+    tryAutoplay();
+    ['scroll','click','touchstart','keydown'].forEach(function(evt){
+      window.addEventListener(evt, tryAutoplay, {once:true, passive:true});
+    });
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(audio.paused){ userPaused = false; audio.play().then(function(){ setPlaying(true); }).catch(function(){}); }
+      else { userPaused = true; audio.pause(); setPlaying(false); }
+    });
+  })();
+</script>
 
 </body>
 </html>
