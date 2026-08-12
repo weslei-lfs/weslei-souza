@@ -104,6 +104,10 @@
   footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
   footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
 
+  /* -------- scroll reveal -------- */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
   @media (max-width:900px){
     .nav-links{ display:none; }
   }
@@ -140,7 +144,7 @@
 </nav>
 
 <section class="page-hero">
-  <div class="page-hero-photo"><img src="assets/cta-bg.jpg" alt=""></div>
+  <div class="page-hero-photo"><img src="assets/page-hero-processo.jpg" alt=""></div>
   <div class="wrap">
     <div class="page-hero-content">
       <div class="eyebrow">Como funciona</div>
@@ -157,11 +161,11 @@
       <h2>As 5 etapas do projeto</h2>
     </div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-node">1</div><div class="tl-title">Contato</div><div class="tl-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
-      <div class="tl-item"><div class="tl-node">2</div><div class="tl-title">Briefing</div><div class="tl-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
-      <div class="tl-item"><div class="tl-node">3</div><div class="tl-title">Prévia</div><div class="tl-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
-      <div class="tl-item"><div class="tl-node">4</div><div class="tl-title">Ajustes</div><div class="tl-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
-      <div class="tl-item"><div class="tl-node">5</div><div class="tl-title">No ar</div><div class="tl-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
+      <div class="tl-item reveal"><div class="tl-node">1</div><div class="tl-title">Contato</div><div class="tl-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
+      <div class="tl-item reveal"><div class="tl-node">2</div><div class="tl-title">Briefing</div><div class="tl-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
+      <div class="tl-item reveal"><div class="tl-node">3</div><div class="tl-title">Prévia</div><div class="tl-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
+      <div class="tl-item reveal"><div class="tl-node">4</div><div class="tl-title">Ajustes</div><div class="tl-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
+      <div class="tl-item reveal"><div class="tl-node">5</div><div class="tl-title">No ar</div><div class="tl-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
     </div>
   </div>
 </section>
@@ -175,11 +179,11 @@
       <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
     </div>
     <div class="formatos-grid">
-      <div class="formato-card">
+      <div class="formato-card reveal">
         <div class="formato-title">Entrega única</div>
         <div class="formato-desc">A gente constrói o site e publica. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende da Network Space pra continuar no ar.</div>
       </div>
-      <div class="formato-card">
+      <div class="formato-card reveal">
         <div class="formato-title">Parceria mensal</div>
         <div class="formato-desc">Se preferir, a gente continua cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
       </div>
@@ -189,7 +193,7 @@
 
 <section class="investimento">
   <div class="wrap">
-    <div class="invest-card">
+    <div class="invest-card reveal">
       <div class="eyebrow">Investimento</div>
       <p style="margin-top:18px;">Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
       <div class="invest-tag">Valor a combinar.</div>
@@ -219,5 +223,15 @@
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
