@@ -108,6 +108,25 @@
   .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
+  /* -------- fx: network canvas / cursor / tilt / glass / decode -------- */
+  .net-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .cx-dot{ position:fixed; top:0; left:0; width:6px; height:6px; border-radius:50%; background:var(--accent-2); pointer-events:none; z-index:9999; box-shadow:0 0 10px 2px rgba(31,147,242,.85); }
+  .cx-ring{ position:fixed; top:0; left:0; width:32px; height:32px; border-radius:50%; border:1px solid rgba(108,192,255,.45); pointer-events:none; z-index:9998; transition:width .2s,height .2s,border-color .2s,background .2s; }
+  .cx-ring.cx-big{ width:56px; height:56px; border-color:var(--accent); background:rgba(31,147,242,.08); }
+  @media (hover:none){ .cx-dot,.cx-ring{ display:none !important; } }
+  body.cx-active, body.cx-active a, body.cx-active button, body.cx-active input, body.cx-active textarea{ cursor:none; }
+
+  .glass{ background:rgba(19,19,22,.55); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid rgba(255,255,255,.08); }
+  .tilt-card{ transition:transform .25s ease, border-color .25s, box-shadow .25s; transform-style:preserve-3d; will-change:transform; }
+  .tilt-card:hover{ border-color:var(--accent); box-shadow:0 24px 60px -22px rgba(31,147,242,.4), 0 0 0 1px rgba(31,147,242,.14) inset; }
+
+  .magnetic{ transition:transform .18s ease; }
+
+  .flux-text{ background:linear-gradient(120deg,#ffffff 0%,#8fb6de 25%,#1f93f2 50%,#8fb6de 75%,#ffffff 100%); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:flux 7s linear infinite; }
+  @keyframes flux{ to{ background-position:300% 0; } }
+
+  .decode-text{ font-variant-ligatures:none; }
+
   @media (max-width:900px){
     .nav-links{ display:none; }
   }
@@ -144,11 +163,14 @@
 </nav>
 
 <section class="page-hero">
-  <div class="page-hero-photo"><img src="assets/page-hero-processo.jpg" alt=""></div>
+  <div class="page-hero-photo">
+    <img src="assets/page-hero-processo.jpg" alt="">
+    <canvas class="net-canvas" data-density="0.00005" style="mix-blend-mode:screen; opacity:.6;"></canvas>
+  </div>
   <div class="wrap">
     <div class="page-hero-content">
-      <div class="eyebrow">Como funciona</div>
-      <h1>Do primeiro contato ao <span class="chrome-text">site no ar.</span></h1>
+      <div class="eyebrow decode-text" data-decode-on-load="true">Como funciona</div>
+      <h1>Do primeiro contato ao <span class="chrome-text flux-text decode-text" data-decode-on-load="true">site no ar.</span></h1>
       <p class="lede">Um processo claro, sem enrolação — e sem letra miúda nos formatos de parceria.</p>
     </div>
   </div>
@@ -179,11 +201,11 @@
       <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
     </div>
     <div class="formatos-grid">
-      <div class="formato-card reveal">
+      <div class="formato-card reveal tilt-card">
         <div class="formato-title">Entrega única</div>
         <div class="formato-desc">A gente constrói o site e publica. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende da Network Space pra continuar no ar.</div>
       </div>
-      <div class="formato-card reveal">
+      <div class="formato-card reveal tilt-card">
         <div class="formato-title">Parceria mensal</div>
         <div class="formato-desc">Se preferir, a gente continua cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
       </div>
@@ -193,13 +215,13 @@
 
 <section class="investimento">
   <div class="wrap">
-    <div class="invest-card reveal">
+    <div class="invest-card reveal tilt-card">
       <div class="eyebrow">Investimento</div>
       <p style="margin-top:18px;">Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
       <div class="invest-tag">Valor a combinar.</div>
       <p>Conversamos, entendemos o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
       <div style="margin-top:22px;">
-        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
+        <a class="btn-wa big magnetic" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
           Vamos conversar
         </a>
@@ -212,8 +234,8 @@
   <div class="wrap">
     <h2>Já viu como funciona. Agora vem ver o que já entregamos.</h2>
     <div class="cta-strip-actions">
-      <a class="btn-ghost" href="portfolio.html">Ver portfólio →</a>
-      <a class="btn-ghost" href="sobre.html">Conhecer a Network Space →</a>
+      <a class="btn-ghost magnetic" href="portfolio.html">Ver portfólio →</a>
+      <a class="btn-ghost magnetic" href="sobre.html">Conhecer a Network Space →</a>
     </div>
   </div>
 </section>
@@ -223,15 +245,6 @@
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
-<script>
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){ io.observe(e); });
-})();
-</script>
+<script src="assets/fx.js" defer></script>
 </body>
 </html>

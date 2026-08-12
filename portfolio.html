@@ -110,6 +110,25 @@
   .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
+  /* -------- fx: network canvas / cursor / tilt / glass / decode -------- */
+  .net-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .cx-dot{ position:fixed; top:0; left:0; width:6px; height:6px; border-radius:50%; background:var(--accent-2); pointer-events:none; z-index:9999; box-shadow:0 0 10px 2px rgba(31,147,242,.85); }
+  .cx-ring{ position:fixed; top:0; left:0; width:32px; height:32px; border-radius:50%; border:1px solid rgba(108,192,255,.45); pointer-events:none; z-index:9998; transition:width .2s,height .2s,border-color .2s,background .2s; }
+  .cx-ring.cx-big{ width:56px; height:56px; border-color:var(--accent); background:rgba(31,147,242,.08); }
+  @media (hover:none){ .cx-dot,.cx-ring{ display:none !important; } }
+  body.cx-active, body.cx-active a, body.cx-active button, body.cx-active input, body.cx-active textarea{ cursor:none; }
+
+  .glass{ background:rgba(19,19,22,.55); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid rgba(255,255,255,.08); }
+  .tilt-card{ transition:transform .25s ease, border-color .25s, box-shadow .25s; transform-style:preserve-3d; will-change:transform; }
+  .tilt-card:hover{ border-color:var(--accent); box-shadow:0 24px 60px -22px rgba(31,147,242,.4), 0 0 0 1px rgba(31,147,242,.14) inset; }
+
+  .magnetic{ transition:transform .18s ease; }
+
+  .flux-text{ background:linear-gradient(120deg,#ffffff 0%,#8fb6de 25%,#1f93f2 50%,#8fb6de 75%,#ffffff 100%); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:flux 7s linear infinite; }
+  @keyframes flux{ to{ background-position:300% 0; } }
+
+  .decode-text{ font-variant-ligatures:none; }
+
   @media (max-width:900px){
     .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
@@ -148,11 +167,14 @@
 </nav>
 
 <section class="page-hero">
-  <div class="page-hero-photo"><img src="assets/page-hero-portfolio.jpg" alt=""></div>
+  <div class="page-hero-photo">
+    <img src="assets/page-hero-portfolio.jpg" alt="">
+    <canvas class="net-canvas" data-density="0.00005" style="mix-blend-mode:screen; opacity:.6;"></canvas>
+  </div>
   <div class="wrap">
     <div class="page-hero-content">
-      <div class="eyebrow">Prova real, não promessa</div>
-      <h1>Projetos que a gente já <span class="chrome-text">colocou no ar.</span></h1>
+      <div class="eyebrow decode-text" data-decode-on-load="true">Prova real, não promessa</div>
+      <h1>Projetos que a gente já <span class="chrome-text flux-text decode-text" data-decode-on-load="true">colocou no ar.</span></h1>
       <p class="lede">Sem mockup fake, sem "exemplo ilustrativo". Estes são sites reais, publicados, de clientes reais — em nichos diferentes.</p>
     </div>
   </div>
@@ -161,7 +183,7 @@
 <section class="portfolio" id="portfolio">
   <div class="wrap">
     <div class="pf-grid">
-      <div class="pf-card reveal">
+      <div class="pf-card reveal tilt-card">
         <div class="pf-thumb"><img src="assets/portfolio-sampaio.jpg" alt="Site da Sampaio Odontologia" loading="lazy"></div>
         <div class="pf-main">
           <div class="pf-niche">Odontologia · Família</div>
@@ -171,7 +193,7 @@
         </div>
         <div class="pf-side"><a class="pf-link" href="https://mesampaioodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
-      <div class="pf-card reveal">
+      <div class="pf-card reveal tilt-card">
         <div class="pf-thumb"><img src="assets/portfolio-kelu.jpg" alt="Site da Kelu Açaí" loading="lazy"></div>
         <div class="pf-main">
           <div class="pf-niche">Alimentação · Açaí</div>
@@ -180,7 +202,7 @@
         </div>
         <div class="pf-side"><a class="pf-link" href="https://kelu-acai-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
-      <div class="pf-card reveal">
+      <div class="pf-card reveal tilt-card">
         <div class="pf-thumb"><img src="assets/portfolio-biliclin.jpg" alt="Site da Biliclin" loading="lazy"></div>
         <div class="pf-main">
           <div class="pf-niche">Odontologia · Prótese</div>
@@ -191,7 +213,7 @@
         </div>
         <div class="pf-side"><a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
-      <div class="pf-card reveal">
+      <div class="pf-card reveal tilt-card">
         <div class="pf-thumb"><img src="assets/portfolio-sandra.jpg" alt="Site da Dra. Sandra Assis" loading="lazy"></div>
         <div class="pf-main">
           <div class="pf-niche">Advocacia</div>
@@ -202,7 +224,7 @@
         </div>
         <div class="pf-side"><a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
       </div>
-      <div class="pf-card reveal">
+      <div class="pf-card reveal tilt-card">
         <div class="pf-thumb"><img src="assets/portfolio-rafael.jpg" alt="Site do Dr. Rafael Bertoletti" loading="lazy"></div>
         <div class="pf-main">
           <div class="pf-niche">Ortodontia</div>
@@ -220,11 +242,11 @@
   <div class="wrap">
     <h2>Quer ver o seu negócio aqui também?</h2>
     <div class="cta-strip-actions">
-      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20que%20meu%20site%20apare%C3%A7a%20no%20portf%C3%B3lio%20de%20voc%C3%AAs" target="_blank" rel="noopener">
+      <a class="btn-wa big magnetic" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20que%20meu%20site%20apare%C3%A7a%20no%20portf%C3%B3lio%20de%20voc%C3%AAs" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
         Falar no WhatsApp
       </a>
-      <a class="btn-ghost" href="processo.html">Ver como funciona →</a>
+      <a class="btn-ghost magnetic" href="processo.html">Ver como funciona →</a>
     </div>
   </div>
 </section>
@@ -234,16 +256,7 @@
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
-<script>
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(e){ io.observe(e); });
-  })();
-</script>
+<script src="assets/fx.js" defer></script>
 
 </body>
 </html>

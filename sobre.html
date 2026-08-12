@@ -113,6 +113,25 @@
   .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
+  /* -------- fx: network canvas / cursor / tilt / glass / decode -------- */
+  .net-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .cx-dot{ position:fixed; top:0; left:0; width:6px; height:6px; border-radius:50%; background:var(--accent-2); pointer-events:none; z-index:9999; box-shadow:0 0 10px 2px rgba(31,147,242,.85); }
+  .cx-ring{ position:fixed; top:0; left:0; width:32px; height:32px; border-radius:50%; border:1px solid rgba(108,192,255,.45); pointer-events:none; z-index:9998; transition:width .2s,height .2s,border-color .2s,background .2s; }
+  .cx-ring.cx-big{ width:56px; height:56px; border-color:var(--accent); background:rgba(31,147,242,.08); }
+  @media (hover:none){ .cx-dot,.cx-ring{ display:none !important; } }
+  body.cx-active, body.cx-active a, body.cx-active button, body.cx-active input, body.cx-active textarea{ cursor:none; }
+
+  .glass{ background:rgba(19,19,22,.55); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid rgba(255,255,255,.08); }
+  .tilt-card{ transition:transform .25s ease, border-color .25s, box-shadow .25s; transform-style:preserve-3d; will-change:transform; }
+  .tilt-card:hover{ border-color:var(--accent); box-shadow:0 24px 60px -22px rgba(31,147,242,.4), 0 0 0 1px rgba(31,147,242,.14) inset; }
+
+  .magnetic{ transition:transform .18s ease; }
+
+  .flux-text{ background:linear-gradient(120deg,#ffffff 0%,#8fb6de 25%,#1f93f2 50%,#8fb6de 75%,#ffffff 100%); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:flux 7s linear infinite; }
+  @keyframes flux{ to{ background-position:300% 0; } }
+
+  .decode-text{ font-variant-ligatures:none; }
+
   @media (max-width:900px){
     .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
@@ -160,11 +179,14 @@
 </nav>
 
 <section class="page-hero">
-  <div class="page-hero-photo"><img src="assets/page-hero-sobre.jpg" alt=""></div>
+  <div class="page-hero-photo">
+    <img src="assets/page-hero-sobre.jpg" alt="">
+    <canvas class="net-canvas" data-density="0.00005" style="mix-blend-mode:screen; opacity:.6;"></canvas>
+  </div>
   <div class="wrap">
     <div class="page-hero-content">
-      <div class="eyebrow">A origem da marca</div>
-      <h1>A história por trás da <span class="chrome-text">Network Space.</span></h1>
+      <div class="eyebrow decode-text" data-decode-on-load="true">A origem da marca</div>
+      <h1>A história por trás da <span class="chrome-text flux-text decode-text" data-decode-on-load="true">Network Space.</span></h1>
       <p class="lede">Por que um lobo. Por que "conexões". E como isso vira, na prática, a forma como a gente trabalha todo dia.</p>
     </div>
   </div>
@@ -233,11 +255,11 @@
 <section class="namesplit-section">
   <div class="wrap">
     <div class="namesplit">
-      <div class="namesplit-card reveal">
+      <div class="namesplit-card reveal tilt-card">
         <h4>NETWORK</h4>
         <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
       </div>
-      <div class="namesplit-card reveal">
+      <div class="namesplit-card reveal tilt-card">
         <h4>SPACE</h4>
         <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
       </div>
@@ -254,17 +276,17 @@
       <p class="section-sub">A história explica o porquê. Isso aqui é o como — na prática, em todo projeto.</p>
     </div>
     <div class="princ-grid">
-      <div class="princ-card reveal">
+      <div class="princ-card reveal tilt-card">
         <div class="princ-num">01</div>
         <div class="princ-title">Disciplina</div>
         <div class="princ-desc">Processo estruturado, prazos que cumprimos e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
       </div>
-      <div class="princ-card reveal">
+      <div class="princ-card reveal tilt-card">
         <div class="princ-num">02</div>
         <div class="princ-title">Foco</div>
         <div class="princ-desc">Cada site é pensado pro seu negócio específico — o que você vende, pra quem, e o que faz alguém escolher você. Nada de solução genérica.</div>
       </div>
-      <div class="princ-card reveal">
+      <div class="princ-card reveal tilt-card">
         <div class="princ-num">03</div>
         <div class="princ-title">Execução</div>
         <div class="princ-desc">Do design ao ar, sem enrolação. Acompanhamos cada etapa até seu site sair do papel e ganhar vida na internet.</div>
@@ -277,11 +299,11 @@
   <div class="wrap">
     <h2>Já deu pra sentir o clima. Agora vem ver o trabalho.</h2>
     <div class="cta-strip-actions">
-      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20li%20a%20hist%C3%B3ria%20da%20Network%20Space%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
+      <a class="btn-wa big magnetic" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20li%20a%20hist%C3%B3ria%20da%20Network%20Space%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
         Falar no WhatsApp
       </a>
-      <a class="btn-ghost" href="portfolio.html">Ver portfólio →</a>
+      <a class="btn-ghost magnetic" href="portfolio.html">Ver portfólio →</a>
     </div>
   </div>
 </section>
@@ -291,16 +313,7 @@
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
-<script>
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(e){ io.observe(e); });
-  })();
-</script>
+<script src="assets/fx.js" defer></script>
 
 </body>
 </html>
