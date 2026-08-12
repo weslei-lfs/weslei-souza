@@ -46,6 +46,7 @@
   .brand-word span{ display:block; font-family:var(--sans); font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
   .nav-links{ display:flex; align-items:center; gap:24px; margin-left:40px; font-size:13px; font-weight:600; color:var(--text-muted); }
   .nav-links a:hover{ color:var(--text); }
+  .nav-links a.active{ color:var(--text); }
   .link-btn{ background:none; border:none; font-family:inherit; font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer; padding:0; }
   .link-btn:hover{ color:var(--text); }
   .accent-link{ color:var(--accent) !important; font-size:14.5px; margin-top:22px; display:inline-block; }
@@ -92,58 +93,25 @@
   .manifesto-wrap .lead-line{ font-family:var(--display); font-weight:700; font-size:clamp(20px,2.8vw,26px); margin-bottom:20px; line-height:1.4; }
   .manifesto-wrap p{ font-size:16px; color:var(--text-muted); line-height:1.8; margin-bottom:16px; }
   .manifesto-wrap strong{ color:var(--text); font-weight:700; }
-  .namesplit{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; text-align:left; }
-  .namesplit-card{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:10px; padding:22px 20px; }
-  .namesplit-card h4{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); margin-bottom:8px; }
-  .namesplit-card p{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin:0; }
 
-  /* -------- princípios -------- */
-  .principios{ padding:90px 0; }
-  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-  .princ-card{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:12px; padding:30px 26px; }
-  .princ-num{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.15em; margin-bottom:18px; }
-  .princ-title{ font-family:var(--display); font-weight:700; font-size:19px; margin-bottom:10px; }
-  .princ-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
+  /* -------- portfolio mini preview -------- */
+  .pf-preview{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .pf-mini-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .pf-mini{ background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color .2s; }
+  .pf-mini:hover{ border-color:var(--accent); }
+  .pf-mini-thumb{ aspect-ratio:900/557; overflow:hidden; }
+  .pf-mini-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  .pf-mini-body{ padding:16px 18px; }
+  .pf-mini-niche{ font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .pf-mini-name{ font-family:var(--display); font-weight:700; font-size:15px; }
+  .pf-preview-more{ text-align:center; margin-top:30px; }
 
-  /* -------- portfolio -------- */
-  .portfolio{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .pf-grid{ display:flex; flex-direction:column; gap:14px; }
-  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 28px 20px 20px; display:flex; align-items:center; gap:24px; transition:border-color .2s; }
-  .pf-card:hover{ border-color:var(--accent); }
-  .pf-thumb{ flex:0 0 auto; width:220px; height:136px; border-radius:8px; overflow:hidden; border:1px solid var(--border-strong); background:var(--bg); }
-  .pf-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
-  .pf-main{ flex:1; min-width:0; }
-  .pf-niche{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
-  .pf-name{ font-family:var(--display); font-weight:700; font-size:19px; }
-  .pf-loc{ font-size:12.5px; color:var(--text-faint); margin-top:2px; }
-  .pf-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin-top:10px; max-width:560px; }
-  .pf-rating{ font-size:12.5px; color:var(--accent); font-weight:600; margin-top:8px; }
-  .pf-side{ flex:0 0 auto; text-align:right; }
-  .pf-link{ font-size:13px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border-strong); border-radius:8px; padding:9px 14px; }
-  .pf-link:hover{ border-color:var(--accent); color:var(--accent-2); }
-
-  /* -------- processo: timeline vertical -------- */
-  .processo{ padding:90px 0; }
-  .timeline{ max-width:640px; margin:0 auto; position:relative; }
-  .timeline::before{ content:""; position:absolute; left:19px; top:8px; bottom:8px; width:1px; background:linear-gradient(var(--border-strong), var(--border)); }
-  .tl-item{ position:relative; padding-left:56px; margin-bottom:34px; }
-  .tl-item:last-child{ margin-bottom:0; }
-  .tl-node{ position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%; background:var(--surface); border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--accent); }
-  .tl-title{ font-family:var(--display); font-weight:700; font-size:16.5px; margin-bottom:6px; padding-top:8px; }
-  .tl-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; }
-
-  /* -------- formatos -------- */
-  .formatos{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:800px; margin:0 auto; }
-  .formato-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; }
-  .formato-title{ font-family:var(--display); font-weight:700; font-size:18px; margin-bottom:10px; }
-  .formato-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
-
-  /* -------- investimento -------- */
-  .investimento{ padding:90px 0; text-align:center; }
-  .invest-card{ max-width:600px; margin:0 auto; background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:14px; padding:46px 40px; }
-  .invest-card p{ font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
-  .invest-tag{ font-family:var(--display); font-weight:700; font-size:24px; color:var(--accent); margin:18px 0 22px; }
+  /* -------- teaser processo -------- */
+  .processo-teaser{ padding:90px 0; text-align:center; }
+  .pt-steps{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:34px 0 40px; font-family:var(--mono); font-size:12px; color:var(--text-faint); letter-spacing:.06em; }
+  .pt-steps span{ display:flex; align-items:center; gap:10px; }
+  .pt-steps b{ color:var(--text); font-weight:600; }
+  .pt-steps .arrow{ color:var(--border-strong); }
 
   /* -------- contato -------- */
   .contato{ padding:90px 0 100px; border-top:1px solid var(--border); position:relative; overflow:hidden; }
@@ -165,43 +133,20 @@
   footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
   footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
 
-  /* -------- modal: história completa -------- */
-  .modal-overlay{ position:fixed; inset:0; z-index:100; background:rgba(4,4,6,.8); backdrop-filter:blur(4px); display:none; align-items:flex-start; justify-content:center; padding:60px 20px; overflow-y:auto; }
-  .modal-overlay.open{ display:flex; }
-  .modal-panel{ background:var(--bg-1); border:1px solid var(--border-strong); border-radius:16px; max-width:660px; width:100%; padding:44px 40px 50px; position:relative; }
-  .modal-close{ position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text-muted); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .modal-close:hover{ color:var(--text); border-color:var(--accent); }
-  .story h2{ font-family:var(--display); font-weight:700; font-size:clamp(22px,3.4vw,30px); margin:14px 0 40px; }
-  .story p{ font-size:15.5px; color:var(--text-muted); line-height:1.8; margin-bottom:18px; }
-  .story p strong{ color:var(--text); font-weight:700; }
-  .story .beat{ font-family:var(--display); font-weight:600; font-size:16.5px; color:var(--text); text-align:center; margin:20px 0; line-height:1.5; }
-  .story h3{ font-family:var(--display); font-weight:700; font-size:18px; margin:44px 0 14px; text-align:center; }
-  .story .pull{ font-family:var(--display); font-weight:700; font-size:clamp(18px,2.6vw,22px); color:var(--accent); text-align:center; line-height:1.4; margin:40px 0 6px; }
-  .story .taglist{ display:flex; flex-wrap:wrap; justify-content:center; margin:24px 0; font-size:14px; color:var(--text); text-align:center; }
-  .story .taglist span:not(:last-child)::after{ content:" · "; color:var(--accent); }
-  .story .brandmark{ font-family:var(--mono); font-weight:700; font-size:clamp(15px,2.2vw,18px); letter-spacing:.2em; text-align:center; color:var(--text); margin:44px 0; }
-
   @media (max-width:900px){
-    .princ-grid{ grid-template-columns:1fr; }
     .nav-links{ display:none; }
     .manifesto-grid{ grid-template-columns:1fr; gap:36px; }
     .manifesto-photo{ aspect-ratio:16/9; order:-1; }
+    .pf-mini-grid{ grid-template-columns:1fr; }
   }
   @media (max-width:560px){
-    .namesplit, .formatos-grid, .contato-grid{ grid-template-columns:1fr; }
+    .contato-grid{ grid-template-columns:1fr; }
     .hero{ padding:56px 0 48px; }
     .hero-mark-ring{ width:160px; height:160px; }
     .hero-mark{ width:110px; height:110px; }
-    .principios, .portfolio, .formatos, .investimento{ padding-top:56px; padding-bottom:56px; }
-    .processo{ padding:56px 0; }
+    .pf-preview, .processo-teaser{ padding-top:56px; padding-bottom:56px; }
     .manifesto{ padding-top:48px; padding-bottom:56px; }
     .contato{ padding-top:56px; padding-bottom:64px; }
-    .invest-card{ padding:32px 24px; }
-    .pf-card{ flex-direction:column; align-items:flex-start; }
-    .pf-thumb{ width:100%; height:auto; aspect-ratio:900/557; }
-    .pf-side{ text-align:left; }
-    .modal-panel{ padding:36px 22px 40px; }
-    .modal-overlay{ padding:28px 12px; }
   }
 </style>
 </head>
@@ -210,16 +155,15 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand">
+    <a class="brand" href="index.html">
       <img src="logo-mark-dark.png" alt="Network Space" class="brand-mark">
       <div class="brand-word">NETWORK SPACE<span>Agência de Sites</span></div>
-    </div>
+    </a>
     <div class="nav-links">
-      <button class="link-btn" id="btnSobre" type="button">Sobre</button>
-      <a href="#principios">Como trabalhamos</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#processo">Processo</a>
-      <a href="#formatos">Formatos</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a href="processo.html">Processo</a>
+      <a href="#contato">Contato</a>
     </div>
     <a class="btn-wa" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20do%20meu%20site" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
@@ -241,7 +185,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
           Falar no WhatsApp
         </a>
-        <a class="btn-ghost" href="#portfolio">Ver portfólio</a>
+        <a class="btn-ghost" href="portfolio.html">Ver portfólio</a>
       </div>
       <div class="hero-strip">
         <span>Sites reais, no ar</span>
@@ -260,51 +204,14 @@
         <p class="lead-line">O problema raramente é falta de talento. É falta de conexão.</p>
         <p>Tem empresa com potencial que ninguém encontra. Ideia boa que não tem onde crescer. Profissional que sabe fazer, mas não sabe mostrar.</p>
         <p>A <strong>Network Space</strong> existe pra resolver exatamente isso — conectando negócios, pessoas e tecnologia num espaço só. Não estamos aqui só pra criar presença. <strong>Estamos aqui pra criar conexões.</strong></p>
-        <div class="namesplit">
-          <div class="namesplit-card">
-            <h4>NETWORK</h4>
-            <p>Nenhuma empresa cresce sozinha. A gente acredita no poder das conexões: negócio a pessoas, ideia a tecnologia, empresa ao mundo.</p>
-          </div>
-          <div class="namesplit-card">
-            <h4>SPACE</h4>
-            <p>Toda ideia precisa de espaço pra crescer e ser encontrada. A internet é esse espaço — e é aí que a gente entra.</p>
-          </div>
-        </div>
-        <button class="link-btn accent-link" id="btnSobre2" type="button">Ler a história completa →</button>
+        <a class="link-btn accent-link" href="sobre.html">Conhecer a história completa →</a>
       </div>
       <div class="manifesto-photo"><img src="assets/manifesto-bg.jpg" alt="Network Space"></div>
     </div>
   </div>
 </section>
 
-<section class="principios" id="principios">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
-      <div class="eyebrow">Como trabalhamos</div>
-      <h2>Três princípios. Um resultado.</h2>
-    </div>
-    <div class="princ-grid">
-      <div class="princ-card">
-        <div class="princ-num">01</div>
-        <div class="princ-title">Disciplina</div>
-        <div class="princ-desc">Processo estruturado, prazos que cumprimos e comunicação clara do início ao fim. Você sempre sabe em que etapa o seu projeto está.</div>
-      </div>
-      <div class="princ-card">
-        <div class="princ-num">02</div>
-        <div class="princ-title">Foco</div>
-        <div class="princ-desc">Cada site é pensado pro seu negócio específico — o que você vende, pra quem, e o que faz alguém escolher você. Nada de solução genérica.</div>
-      </div>
-      <div class="princ-card">
-        <div class="princ-num">03</div>
-        <div class="princ-title">Execução</div>
-        <div class="princ-desc">Do design ao ar, sem enrolação. Acompanhamos cada etapa até seu site sair do papel e ganhar vida na internet.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="portfolio" id="portfolio">
+<section class="pf-preview" id="portfolio">
   <div class="wrap">
     <div class="section-head">
       <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
@@ -312,95 +219,41 @@
       <h2>Projetos entregues, em nichos diferentes</h2>
       <p class="section-sub">Sem mockup fake. Estes são sites reais, no ar, de clientes reais.</p>
     </div>
-    <div class="pf-grid">
-      <div class="pf-card">
-        <div class="pf-thumb"><img src="assets/portfolio-rafael.jpg" alt="Site do Dr. Rafael Bertoletti" loading="lazy"></div>
-        <div class="pf-main">
-          <div class="pf-niche">Ortodontia</div>
-          <div class="pf-name">Dr. Rafael Bertoletti</div>
-          <div class="pf-loc">Andradina · SP</div>
-          <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
-        </div>
-        <div class="pf-side"><a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">Visitar site →</a></div>
-      </div>
-      <div class="pf-card">
-        <div class="pf-thumb"><img src="assets/portfolio-sandra.jpg" alt="Site da Dra. Sandra Assis" loading="lazy"></div>
-        <div class="pf-main">
-          <div class="pf-niche">Advocacia</div>
-          <div class="pf-name">Dra. Sandra Assis</div>
-          <div class="pf-loc">Salesópolis · SP</div>
-          <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
-          <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
-        </div>
-        <div class="pf-side"><a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
-      </div>
-      <div class="pf-card">
-        <div class="pf-thumb"><img src="assets/portfolio-biliclin.jpg" alt="Site da Biliclin" loading="lazy"></div>
-        <div class="pf-main">
-          <div class="pf-niche">Odontologia · Prótese</div>
-          <div class="pf-name">Biliclin</div>
-          <div class="pf-loc">São Paulo · SP</div>
-          <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
-          <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
-        </div>
-        <div class="pf-side"><a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
-      </div>
+    <div class="pf-mini-grid">
+      <a class="pf-mini" href="portfolio.html">
+        <div class="pf-mini-thumb"><img src="assets/portfolio-sampaio.jpg" alt="Site da Sampaio Odontologia" loading="lazy"></div>
+        <div class="pf-mini-body"><div class="pf-mini-niche">Odontologia · Família</div><div class="pf-mini-name">Sampaio Odontologia</div></div>
+      </a>
+      <a class="pf-mini" href="portfolio.html">
+        <div class="pf-mini-thumb"><img src="assets/portfolio-biliclin.jpg" alt="Site da Biliclin" loading="lazy"></div>
+        <div class="pf-mini-body"><div class="pf-mini-niche">Odontologia · Prótese</div><div class="pf-mini-name">Biliclin</div></div>
+      </a>
+      <a class="pf-mini" href="portfolio.html">
+        <div class="pf-mini-thumb"><img src="assets/portfolio-kelu.jpg" alt="Site da Kelu Açaí" loading="lazy"></div>
+        <div class="pf-mini-body"><div class="pf-mini-niche">Alimentação · Açaí</div><div class="pf-mini-name">Kelu Açaí</div></div>
+      </a>
+    </div>
+    <div class="pf-preview-more">
+      <a class="btn-ghost" href="portfolio.html">Ver portfólio completo →</a>
     </div>
   </div>
 </section>
 
-<section class="processo" id="processo">
+<section class="processo-teaser">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" style="margin-bottom:0;">
       <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
       <div class="eyebrow">Como funciona</div>
-      <h2>Do primeiro contato ao site no ar</h2>
+      <h2>Um processo claro, do contato ao site no ar</h2>
     </div>
-    <div class="timeline">
-      <div class="tl-item"><div class="tl-node">1</div><div class="tl-title">Contato</div><div class="tl-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
-      <div class="tl-item"><div class="tl-node">2</div><div class="tl-title">Briefing</div><div class="tl-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
-      <div class="tl-item"><div class="tl-node">3</div><div class="tl-title">Prévia</div><div class="tl-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
-      <div class="tl-item"><div class="tl-node">4</div><div class="tl-title">Ajustes</div><div class="tl-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
-      <div class="tl-item"><div class="tl-node">5</div><div class="tl-title">No ar</div><div class="tl-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
+    <div class="pt-steps">
+      <span><b>1. Contato</b></span><span class="arrow">→</span>
+      <span><b>2. Briefing</b></span><span class="arrow">→</span>
+      <span><b>3. Prévia</b></span><span class="arrow">→</span>
+      <span><b>4. Ajustes</b></span><span class="arrow">→</span>
+      <span><b>5. No ar</b></span>
     </div>
-  </div>
-</section>
-
-<section class="formatos" id="formatos">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
-      <div class="eyebrow">Depois que o site fica pronto</div>
-      <h2>Você escolhe como continua</h2>
-      <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
-    </div>
-    <div class="formatos-grid">
-      <div class="formato-card">
-        <div class="formato-title">Entrega única</div>
-        <div class="formato-desc">A gente constrói o site e publica. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende da Network Space pra continuar no ar.</div>
-      </div>
-      <div class="formato-card">
-        <div class="formato-title">Parceria mensal</div>
-        <div class="formato-desc">Se preferir, a gente continua cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="investimento">
-  <div class="wrap">
-    <div class="invest-card">
-      <div class="eyebrow">Investimento</div>
-      <p style="margin-top:18px;">Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
-      <div class="invest-tag">Valor a combinar.</div>
-      <p>Conversamos, entendemos o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
-      <div style="margin-top:22px;">
-        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-          Vamos conversar
-        </a>
-      </div>
-    </div>
+    <a class="btn-ghost" href="processo.html">Ver processo e formatos completos →</a>
   </div>
 </section>
 
@@ -450,92 +303,16 @@
   Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
 </footer>
 
-<div class="modal-overlay" id="sobreOverlay">
-  <div class="modal-panel">
-    <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">✕</button>
-    <div class="story">
-      <div class="eyebrow">A origem da marca</div>
-      <h2>A lenda do lobo da Network Space</h2>
-
-      <p>Antes de existir a Network Space, existia apenas um lobo.</p>
-      <p class="beat">Não era o maior.<br>Não era o mais rápido.<br>Não era o mais feroz.</p>
-      <p class="beat">Era apenas aquele que enxergava mais longe.</p>
-      <p>Enquanto os outros lobos procuravam o próximo caminho, ele procurava aquilo que existia depois dele. Enquanto a matilha seguia rastros conhecidos, ele parava diante do desconhecido.</p>
-      <p class="beat">E foi assim que, certa noite, ele deixou a floresta.<br>Não porque estivesse perdido.</p>
-      <p>Mas porque percebeu uma coisa que ninguém havia percebido antes:</p>
-      <p class="pull">o mundo era muito maior do que a sua própria matilha.</p>
-
-      <p>Ele caminhou durante dias. Atravessou montanhas, rios e cidades. Até chegar a um lugar onde milhares de luzes brilhavam no horizonte.</p>
-      <p>Ali, ele encontrou algo que nunca tinha visto.</p>
-      <p class="beat">Pessoas.<br>Milhares delas.</p>
-      <p>Cada uma carregando uma ideia. Uma pequena empresa. Um sonho. Uma habilidade. Uma história.</p>
-      <p>Algumas tinham grandes planos, mas ninguém as conhecia. Outras tinham produtos incríveis, mas não sabiam como mostrá-los. Algumas trabalhavam todos os dias para construir alguma coisa, enquanto permaneciam invisíveis para o mundo.</p>
-      <p class="beat">O lobo observou tudo em silêncio.<br>E entendeu.</p>
-
-      <p class="beat"><strong>O problema não era falta de talento.</strong><br>Era falta de conexão.</p>
-      <p>Havia pessoas procurando pessoas. Empresas procurando clientes. Ideias procurando espaço. Sonhos procurando uma oportunidade.</p>
-      <p class="beat">Tudo estava ali.<br>Mas estava separado.</p>
-
-      <p>Então o lobo fez aquilo que sempre soube fazer. Ele reuniu a matilha. Mas dessa vez a matilha seria diferente. Não seria formada apenas por lobos. Seria formada por <strong>pessoas</strong>.</p>
-      <div class="taglist"><span>Designers</span><span>Desenvolvedores</span><span>Estrategistas</span><span>Empreendedores</span><span>Criadores</span><span>Comerciantes</span><span>Profissionais</span></div>
-      <p>E, principalmente, pessoas que se recusavam a aceitar que seus sonhos deveriam permanecer pequenos.</p>
-
-      <p class="pull">Foi assim que nasceu a Network Space.</p>
-      <p>Não como uma agência. Não como uma empresa de sites. E muito menos como mais uma marca tentando disputar atenção na internet.</p>
-      <p class="beat">A Network Space nasceu como um <strong>ponto de encontro</strong>.</p>
-      <p>Um espaço onde pessoas e negócios se conectam ao mundo. Onde uma ideia deixa de existir apenas na cabeça de alguém e ganha forma. Onde uma empresa que ninguém conhecia passa a ser encontrada. Onde um pequeno negócio pode construir uma presença tão forte quanto uma grande empresa. Onde tecnologia, criatividade e pessoas deixam de trabalhar separadas. E começam a trabalhar juntas.</p>
-
-      <h3>O lobo nunca esteve sozinho</h3>
-      <p>Essa é a parte que quase ninguém entende. O lobo não representa a solidão. Representa <strong>a liderança que sabe reunir</strong>.</p>
-      <p class="beat">Um lobo sozinho pode sobreviver.<br>Mas uma matilha pode mudar o destino de uma floresta.</p>
-      <p>Por isso, na Network Space, ninguém é apenas cliente. Ninguém é apenas funcionário. Ninguém é apenas parceiro.</p>
-      <p class="pull">Todos fazem parte da rede.</p>
-      <p>Porque uma rede é mais forte quando cada pessoa acrescenta alguma coisa.</p>
-      <div class="taglist"><span>Uma ideia</span><span>Uma habilidade</span><span>Uma oportunidade</span><span>Uma conexão</span><span>Uma indicação</span><span>Uma história</span><span>Um sonho</span></div>
-      <p>E quanto mais pessoas entram, mais forte a rede se torna.</p>
-
-      <h3>E o lobo?</h3>
-      <p class="beat">O lobo continua caminhando.</p>
-      <p>Mas agora ele não procura um lugar para pertencer. Ele procura <strong>quem ainda está perdido no caminho</strong>.</p>
-      <p>Aquele pequeno empresário que trabalha todos os dias e ninguém conhece. Aquela pessoa que tem uma ideia extraordinária, mas não sabe por onde começar. Aquele profissional que sabe fazer, mas não sabe mostrar. Aquela empresa que tem potencial para crescer, mas ainda está invisível.</p>
-      <p>Quando encontra alguém assim, ele não passa reto.</p>
-      <p class="beat">Ele para.<br>Olha.<br>E estende a mão.</p>
-      <p>Porque a missão nunca foi encontrar os melhores.</p>
-      <p class="pull">A missão é ajudar pessoas comuns a construírem coisas extraordinárias.</p>
-
-      <p>E é por isso que, quando alguém entra para a Network Space, não está simplesmente contratando uma empresa.</p>
-      <p class="beat">Está entrando para uma rede.<br>Uma matilha.<br>Um espaço onde ideias encontram pessoas, onde pessoas encontram oportunidades, e onde negócios encontram o mundo.</p>
-
-      <div class="brandmark">NETWORK SPACE</div>
-
-      <p class="pull">Não estamos aqui apenas para criar presença.<br><strong>Estamos aqui para criar conexões.</strong></p>
-      <p style="text-align:center;">E toda grande história começa quando alguém decide não caminhar sozinho.</p>
-    </div>
-  </div>
-</div>
-
 <script>
-  (function(){
-    var overlay = document.getElementById('sobreOverlay');
-    function openModal(){ overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeModal(){ overlay.classList.remove('open'); document.body.style.overflow = ''; }
-    document.getElementById('btnSobre').addEventListener('click', openModal);
-    document.getElementById('btnSobre2').addEventListener('click', openModal);
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
-
-    var form = document.getElementById('contatoForm');
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var nome = document.getElementById('cf_nome').value.trim();
-      var whats = document.getElementById('cf_whats').value.trim();
-      var msg = document.getElementById('cf_msg').value.trim();
-      var texto = 'Olá! Meu nome é ' + nome + ' (WhatsApp: ' + whats + ').';
-      if (msg) texto += ' ' + msg;
-      window.open('https://wa.me/5518991219270?text=' + encodeURIComponent(texto), '_blank');
-    });
-  })();
+  document.getElementById('contatoForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = document.getElementById('cf_nome').value.trim();
+    var whats = document.getElementById('cf_whats').value.trim();
+    var msg = document.getElementById('cf_msg').value.trim();
+    var texto = 'Olá! Meu nome é ' + nome + ' (WhatsApp: ' + whats + ').';
+    if (msg) texto += ' ' + msg;
+    window.open('https://wa.me/5518991219270?text=' + encodeURIComponent(texto), '_blank');
+  });
 </script>
 
 </body>

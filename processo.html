@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Processo e formatos — Network Space</title>
+<meta name="description" content="Do primeiro contato ao site no ar: veja como funciona o processo da Network Space e os formatos de parceria disponíveis.">
+<link rel="icon" type="image/png" href="logo-mark-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080a; --bg-1:#0d0d10; --surface:#131316; --surface-2:#18181c; --surface-3:#212126;
+    --border:#26262c; --border-strong:#3a3a42;
+    --text:#f5f5f7; --text-muted:#a3a3ad; --text-faint:#6d6d76;
+    --accent:#1f93f2; --accent-2:#6cc0ff; --accent-soft:rgba(31,147,242,.12); --accent-ink:#08090c;
+    --wa:#25d366;
+    --display:'Sora', sans-serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ max-width:100%; display:block; }
+  .mono{ font-family:var(--mono); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  .bg-glow{ position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(620px 480px at 50% -10%, rgba(31,147,242,.16), transparent 62%),
+      radial-gradient(500px 420px at 100% 30%, rgba(31,147,242,.06), transparent 60%);
+  }
+  .chrome-text{ background:linear-gradient(180deg,#ffffff 0%,#dbe6f2 40%,#8fb6de 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .node-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px; }
+  .node-divider .ln{ width:34px; height:1px; background:var(--border-strong); }
+  .node-divider .dot{ width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+  /* -------- nav -------- */
+  nav{ position:sticky; top:0; z-index:50; background:rgba(8,8,10,.82); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  nav .wrap{ display:flex; align-items:center; gap:14px; padding:10px 28px; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{ width:48px; height:48px; flex:0 0 auto; }
+  .brand-word{ font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em; }
+  .brand-word span{ display:block; font-family:var(--sans); font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+  .nav-links{ display:flex; align-items:center; gap:24px; margin-left:40px; font-size:13px; font-weight:600; color:var(--text-muted); }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a.active{ color:var(--text); }
+  .link-btn{ background:none; border:none; font-family:inherit; font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer; padding:0; }
+  .link-btn:hover{ color:var(--text); }
+  .accent-link{ color:var(--accent) !important; font-size:14.5px; margin-top:22px; display:inline-block; }
+  .accent-link:hover{ color:var(--accent-2) !important; }
+  .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:8px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
+  .btn-wa:hover{ filter:brightness(1.07); transform:translateY(-1px); }
+  .btn-wa svg{ width:15px; height:15px; }
+  .btn-wa.big{ padding:16px 28px; font-size:16px; border-radius:10px; }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:16px 26px; border:1px solid var(--border-strong); border-radius:10px; font-size:15px; font-weight:600; color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--accent); background:var(--accent-soft); }
+
+  section{ position:relative; z-index:2; }
+
+  /* -------- page hero (sub-pages) -------- */
+  .page-hero{ padding:110px 0 64px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero-photo{ position:absolute; inset:0; z-index:0; }
+  .page-hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+  .page-hero-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, var(--bg) 0%, rgba(8,8,10,.55) 35%, rgba(8,8,10,.55) 70%, var(--bg) 100%); }
+  .page-hero-content{ position:relative; z-index:1; }
+  .page-hero h1{ font-family:var(--display); font-weight:700; font-size:clamp(30px,4.6vw,46px); line-height:1.16; letter-spacing:-.01em; max-width:700px; margin:20px auto 16px; }
+  .page-hero .lede{ font-size:clamp(15px,1.8vw,17px); color:var(--text-muted); max-width:520px; margin:0 auto; }
+
+  .section-head{ text-align:center; max-width:580px; margin:0 auto 50px; }
+  .section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,32px); letter-spacing:-.01em; margin-top:14px; }
+  .section-sub{ color:var(--text-muted); margin-top:12px; font-size:15px; }
+
+  /* -------- processo: timeline vertical -------- */
+  .processo{ padding:20px 0 90px; }
+  .timeline{ max-width:640px; margin:0 auto; position:relative; }
+  .timeline::before{ content:""; position:absolute; left:19px; top:8px; bottom:8px; width:1px; background:linear-gradient(var(--border-strong), var(--border)); }
+  .tl-item{ position:relative; padding-left:56px; margin-bottom:34px; }
+  .tl-item:last-child{ margin-bottom:0; }
+  .tl-node{ position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%; background:var(--surface); border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--accent); }
+  .tl-title{ font-family:var(--display); font-weight:700; font-size:16.5px; margin-bottom:6px; padding-top:8px; }
+  .tl-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; }
+
+  /* -------- formatos -------- */
+  .formatos{ padding:90px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .formatos-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:800px; margin:0 auto; }
+  .formato-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; }
+  .formato-title{ font-family:var(--display); font-weight:700; font-size:18px; margin-bottom:10px; }
+  .formato-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
+
+  /* -------- investimento -------- */
+  .investimento{ padding:90px 0; text-align:center; }
+  .invest-card{ max-width:600px; margin:0 auto; background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:14px; padding:46px 40px; }
+  .invest-card p{ font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
+  .invest-tag{ font-family:var(--display); font-weight:700; font-size:24px; color:var(--accent); margin:18px 0 22px; }
+
+  /* -------- cta strip -------- */
+  .cta-strip{ padding:80px 0; text-align:center; border-top:1px solid var(--border); }
+  .cta-strip h2{ font-family:var(--display); font-weight:700; font-size:clamp(22px,3vw,28px); margin-bottom:24px; max-width:520px; margin-left:auto; margin-right:auto; }
+  .cta-strip-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
+  footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+  }
+  @media (max-width:560px){
+    .namesplit, .formatos-grid{ grid-template-columns:1fr; }
+    .page-hero{ padding:70px 0 44px; }
+    .processo{ padding:10px 0 56px; }
+    .formatos, .investimento{ padding-top:56px; padding-bottom:56px; }
+    .cta-strip{ padding:56px 0; }
+    .invest-card{ padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="logo-mark-dark.png" alt="Network Space" class="brand-mark">
+      <div class="brand-word">NETWORK SPACE<span>Agência de Sites</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="sobre.html">Sobre</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a href="processo.html" class="active">Processo</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+    <a class="btn-wa" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20entender%20como%20funciona%20o%20processo%20de%20voc%C3%AAs" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-photo"><img src="assets/cta-bg.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="page-hero-content">
+      <div class="eyebrow">Como funciona</div>
+      <h1>Do primeiro contato ao <span class="chrome-text">site no ar.</span></h1>
+      <p class="lede">Um processo claro, sem enrolação — e sem letra miúda nos formatos de parceria.</p>
+    </div>
+  </div>
+</section>
+
+<section class="processo" id="processo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
+      <h2>As 5 etapas do projeto</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-node">1</div><div class="tl-title">Contato</div><div class="tl-desc">Você chama a gente no WhatsApp e conta sobre o seu negócio.</div></div>
+      <div class="tl-item"><div class="tl-node">2</div><div class="tl-title">Briefing</div><div class="tl-desc">Levantamos o que você precisa: identidade, conteúdo, referências.</div></div>
+      <div class="tl-item"><div class="tl-node">3</div><div class="tl-title">Prévia</div><div class="tl-desc">Construímos o site e mostramos pronto, sem compromisso.</div></div>
+      <div class="tl-item"><div class="tl-node">4</div><div class="tl-title">Ajustes</div><div class="tl-desc">Refinamos com você até ficar exatamente do jeito certo.</div></div>
+      <div class="tl-item"><div class="tl-node">5</div><div class="tl-title">No ar</div><div class="tl-desc">Publicamos e seu negócio ganha uma vitrine à altura.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="formatos" id="formatos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="node-divider"><div class="ln"></div><div class="dot"></div><div class="ln"></div></div>
+      <div class="eyebrow">Depois que o site fica pronto</div>
+      <h2>Você escolhe como continua</h2>
+      <p class="section-sub">Dois jeitos de trabalhar com a gente, sem letra miúda.</p>
+    </div>
+    <div class="formatos-grid">
+      <div class="formato-card">
+        <div class="formato-title">Entrega única</div>
+        <div class="formato-desc">A gente constrói o site e publica. Domínio e hospedagem ficam registrados na sua própria conta — o site é seu, e você não depende da Network Space pra continuar no ar.</div>
+      </div>
+      <div class="formato-card">
+        <div class="formato-title">Parceria mensal</div>
+        <div class="formato-desc">Se preferir, a gente continua cuidando do site pra você — atualizações, ajustes e suporte contínuo, com uma mensalidade simples. Pode contratar já na entrega ou depois, quando fizer sentido.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="investimento">
+  <div class="wrap">
+    <div class="invest-card">
+      <div class="eyebrow">Investimento</div>
+      <p style="margin-top:18px;">Não trabalhamos com preço de prateleira. O valor depende do que o seu negócio precisa — porte, funcionalidades, prazo.</p>
+      <div class="invest-tag">Valor a combinar.</div>
+      <p>Conversamos, entendemos o que você precisa, e alinhamos um valor justo pros dois lados — antes de qualquer compromisso.</p>
+      <div style="margin-top:22px;">
+        <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20o%20valor%20do%20meu%20site" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+          Vamos conversar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>Já viu como funciona. Agora vem ver o que já entregamos.</h2>
+    <div class="cta-strip-actions">
+      <a class="btn-ghost" href="portfolio.html">Ver portfólio →</a>
+      <a class="btn-ghost" href="sobre.html">Conhecer a Network Space →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo-mark-dark.png" alt="Network Space" class="fmark">
+  Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
+</footer>
+
+</body>
+</html>

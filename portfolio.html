@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio — Network Space</title>
+<meta name="description" content="Projetos reais, no ar, de clientes reais. Veja os sites que a Network Space já entregou em diferentes nichos.">
+<link rel="icon" type="image/png" href="logo-mark-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080a; --bg-1:#0d0d10; --surface:#131316; --surface-2:#18181c; --surface-3:#212126;
+    --border:#26262c; --border-strong:#3a3a42;
+    --text:#f5f5f7; --text-muted:#a3a3ad; --text-faint:#6d6d76;
+    --accent:#1f93f2; --accent-2:#6cc0ff; --accent-soft:rgba(31,147,242,.12); --accent-ink:#08090c;
+    --wa:#25d366;
+    --display:'Sora', sans-serif; --sans:'Inter', sans-serif; --mono:'JetBrains Mono', monospace;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ max-width:100%; display:block; }
+  .mono{ font-family:var(--mono); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  .bg-glow{ position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(620px 480px at 50% -10%, rgba(31,147,242,.16), transparent 62%),
+      radial-gradient(500px 420px at 100% 30%, rgba(31,147,242,.06), transparent 60%);
+  }
+  .chrome-text{ background:linear-gradient(180deg,#ffffff 0%,#dbe6f2 40%,#8fb6de 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .node-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px; }
+  .node-divider .ln{ width:34px; height:1px; background:var(--border-strong); }
+  .node-divider .dot{ width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+  /* -------- nav -------- */
+  nav{ position:sticky; top:0; z-index:50; background:rgba(8,8,10,.82); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  nav .wrap{ display:flex; align-items:center; gap:14px; padding:10px 28px; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{ width:48px; height:48px; flex:0 0 auto; }
+  .brand-word{ font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em; }
+  .brand-word span{ display:block; font-family:var(--sans); font-weight:600; font-size:9px; color:var(--text-faint); letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
+  .nav-links{ display:flex; align-items:center; gap:24px; margin-left:40px; font-size:13px; font-weight:600; color:var(--text-muted); }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a.active{ color:var(--text); }
+  .link-btn{ background:none; border:none; font-family:inherit; font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer; padding:0; }
+  .link-btn:hover{ color:var(--text); }
+  .accent-link{ color:var(--accent) !important; font-size:14.5px; margin-top:22px; display:inline-block; }
+  .accent-link:hover{ color:var(--accent-2) !important; }
+  .btn-wa{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; background:var(--wa); color:#04150a; font-weight:700; padding:9px 16px; border-radius:8px; font-size:13px; transition:transform .2s, filter .2s; white-space:nowrap; }
+  .btn-wa:hover{ filter:brightness(1.07); transform:translateY(-1px); }
+  .btn-wa svg{ width:15px; height:15px; }
+  .btn-wa.big{ padding:16px 28px; font-size:16px; border-radius:10px; }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:16px 26px; border:1px solid var(--border-strong); border-radius:10px; font-size:15px; font-weight:600; color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--accent); background:var(--accent-soft); }
+
+  section{ position:relative; z-index:2; }
+
+  /* -------- page hero (sub-pages) -------- */
+  .page-hero{ padding:110px 0 64px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero-photo{ position:absolute; inset:0; z-index:0; }
+  .page-hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block; }
+  .page-hero-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,10,.55) 0%, rgba(8,8,10,.8) 65%, var(--bg) 97%); }
+  .page-hero-content{ position:relative; z-index:1; }
+  .page-hero h1{ font-family:var(--display); font-weight:700; font-size:clamp(30px,4.6vw,46px); line-height:1.16; letter-spacing:-.01em; max-width:700px; margin:20px auto 16px; }
+  .page-hero .lede{ font-size:clamp(15px,1.8vw,17px); color:var(--text-muted); max-width:520px; margin:0 auto; }
+
+  .section-head{ text-align:center; max-width:580px; margin:0 auto 50px; }
+  .section-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(24px,3.2vw,32px); letter-spacing:-.01em; margin-top:14px; }
+  .section-sub{ color:var(--text-muted); margin-top:12px; font-size:15px; }
+
+  /* -------- princípios -------- */
+  .principios{ padding:90px 0; }
+  .princ-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .princ-card{ background:var(--surface); border:1px solid var(--border); border-top:2px solid var(--accent); border-radius:12px; padding:30px 26px; }
+  .princ-num{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.15em; margin-bottom:18px; }
+  .princ-title{ font-family:var(--display); font-weight:700; font-size:19px; margin-bottom:10px; }
+  .princ-desc{ font-size:14px; color:var(--text-muted); line-height:1.65; }
+
+  /* -------- portfolio -------- */
+  .portfolio{ padding:20px 0 90px; }
+  .pf-grid{ display:flex; flex-direction:column; gap:14px; }
+  .pf-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 28px 20px 20px; display:flex; align-items:center; gap:24px; transition:border-color .2s; }
+  .pf-card:hover{ border-color:var(--accent); }
+  .pf-thumb{ flex:0 0 auto; width:220px; height:136px; border-radius:8px; overflow:hidden; border:1px solid var(--border-strong); background:var(--bg); }
+  .pf-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  .pf-main{ flex:1; min-width:0; }
+  .pf-niche{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+  .pf-name{ font-family:var(--display); font-weight:700; font-size:19px; }
+  .pf-loc{ font-size:12.5px; color:var(--text-faint); margin-top:2px; }
+  .pf-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.6; margin-top:10px; max-width:560px; }
+  .pf-rating{ font-size:12.5px; color:var(--accent); font-weight:600; margin-top:8px; }
+  .pf-side{ flex:0 0 auto; text-align:right; }
+  .pf-link{ font-size:13px; font-weight:700; color:var(--text); display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border-strong); border-radius:8px; padding:9px 14px; }
+  .pf-link:hover{ border-color:var(--accent); color:var(--accent-2); }
+
+  /* -------- cta strip -------- */
+  .cta-strip{ padding:80px 0; text-align:center; border-top:1px solid var(--border); }
+  .cta-strip h2{ font-family:var(--display); font-weight:700; font-size:clamp(22px,3vw,28px); margin-bottom:24px; max-width:520px; margin-left:auto; margin-right:auto; }
+  .cta-strip-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  footer{ padding:32px 0; text-align:center; font-size:12.5px; color:var(--text-faint); border-top:1px solid var(--border); }
+  footer .fmark{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:6px; opacity:.7; }
+
+  @media (max-width:900px){
+    .princ-grid{ grid-template-columns:1fr; }
+    .nav-links{ display:none; }
+  }
+  @media (max-width:560px){
+    .page-hero{ padding:70px 0 44px; }
+    .principios{ padding-top:56px; padding-bottom:56px; }
+    .portfolio{ padding:10px 0 56px; }
+    .cta-strip{ padding:56px 0; }
+    .pf-card{ flex-direction:column; align-items:flex-start; }
+    .pf-thumb{ width:100%; height:auto; aspect-ratio:900/557; }
+    .pf-side{ text-align:left; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="logo-mark-dark.png" alt="Network Space" class="brand-mark">
+      <div class="brand-word">NETWORK SPACE<span>Agência de Sites</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="sobre.html">Sobre</a>
+      <a href="portfolio.html" class="active">Portfólio</a>
+      <a href="processo.html">Processo</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+    <a class="btn-wa" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20vi%20o%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-photo"><img src="assets/hero-bg.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="page-hero-content">
+      <div class="eyebrow">Prova real, não promessa</div>
+      <h1>Projetos que a gente já <span class="chrome-text">colocou no ar.</span></h1>
+      <p class="lede">Sem mockup fake, sem "exemplo ilustrativo". Estes são sites reais, publicados, de clientes reais — em nichos diferentes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="pf-grid">
+      <div class="pf-card">
+        <div class="pf-thumb"><img src="assets/portfolio-sampaio.jpg" alt="Site da Sampaio Odontologia" loading="lazy"></div>
+        <div class="pf-main">
+          <div class="pf-niche">Odontologia · Família</div>
+          <div class="pf-name">Sampaio Odontologia</div>
+          <div class="pf-loc">Andradina · SP</div>
+          <div class="pf-desc">Site institucional pra um consultório de casal — marido e mulher atendendo juntos, com anos de tradição familiar em odontologia na cidade.</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://mesampaioodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
+      </div>
+      <div class="pf-card">
+        <div class="pf-thumb"><img src="assets/portfolio-kelu.jpg" alt="Site da Kelu Açaí" loading="lazy"></div>
+        <div class="pf-main">
+          <div class="pf-niche">Alimentação · Açaí</div>
+          <div class="pf-name">Kelu Açaí</div>
+          <div class="pf-desc">Site de cardápio digital pra uma açaiteria de shakes — sabores, apresentação do produto e pedido direto pelo WhatsApp, sem fricção nenhuma.</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://kelu-acai-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
+      </div>
+      <div class="pf-card">
+        <div class="pf-thumb"><img src="assets/portfolio-biliclin.jpg" alt="Site da Biliclin" loading="lazy"></div>
+        <div class="pf-main">
+          <div class="pf-niche">Odontologia · Prótese</div>
+          <div class="pf-name">Biliclin</div>
+          <div class="pf-loc">São Paulo · SP</div>
+          <div class="pf-desc">Site institucional pra clínica odontológica especializada em prótese, com tradição de duas gerações na família — feito 100% pra converter direto no WhatsApp.</div>
+          <div class="pf-rating">★★★★★ 5,0 no Google · 121 avaliações</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://biliclinodontologia.com.br" target="_blank" rel="noopener">Visitar site →</a></div>
+      </div>
+      <div class="pf-card">
+        <div class="pf-thumb"><img src="assets/portfolio-sandra.jpg" alt="Site da Dra. Sandra Assis" loading="lazy"></div>
+        <div class="pf-main">
+          <div class="pf-niche">Advocacia</div>
+          <div class="pf-name">Dra. Sandra Assis</div>
+          <div class="pf-loc">Salesópolis · SP</div>
+          <div class="pf-desc">Site para escritório de advocacia especializado em causas previdenciárias — áreas de atuação, avaliações e contato direto.</div>
+          <div class="pf-rating">★★★★★ 4,6 no Google · 22 avaliações</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://sandra-assis-advocacia-site.vercel.app" target="_blank" rel="noopener">Visitar site →</a></div>
+      </div>
+      <div class="pf-card">
+        <div class="pf-thumb"><img src="assets/portfolio-rafael.jpg" alt="Site do Dr. Rafael Bertoletti" loading="lazy"></div>
+        <div class="pf-main">
+          <div class="pf-niche">Ortodontia</div>
+          <div class="pf-name">Dr. Rafael Bertoletti</div>
+          <div class="pf-loc">Andradina · SP</div>
+          <div class="pf-desc">Site institucional para consultório odontológico de alto padrão — apresentação do profissional, tratamentos e agendamento direto.</div>
+        </div>
+        <div class="pf-side"><a class="pf-link" href="https://www.rafaelbertoletti.com" target="_blank" rel="noopener">Visitar site →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>Quer ver o seu negócio aqui também?</h2>
+    <div class="cta-strip-actions">
+      <a class="btn-wa big" href="https://wa.me/5518991219270?text=Ol%C3%A1%2C%20quero%20que%20meu%20site%20apare%C3%A7a%20no%20portf%C3%B3lio%20de%20voc%C3%AAs" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a class="btn-ghost" href="processo.html">Ver como funciona →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo-mark-dark.png" alt="Network Space" class="fmark">
+  Network Space · Desenvolvimento web sob medida · Atendemos todo o Brasil · <a href="mailto:contato@networkspace.com.br" style="color:inherit;">contato@networkspace.com.br</a>
+</footer>
+
+</body>
+</html>
