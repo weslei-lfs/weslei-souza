@@ -257,6 +257,44 @@
     update();
   }
 
+  /* ---------- floating wolf mascot ---------- */
+  function initMascot(){
+    var wrap = document.createElement('div');
+    wrap.className = 'mascot-wrap';
+    wrap.innerHTML = '<img class="mascot-img" alt="">';
+    document.body.appendChild(wrap);
+    var img = wrap.querySelector('.mascot-img');
+    img.src = 'assets/mascot-oi.png';
+
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ wrap.classList.add('in'); });
+    });
+
+    if(reduceMotion){ img.src = 'assets/mascot-idle.png'; return; }
+
+    setTimeout(function(){
+      img.src = 'assets/mascot-idle.png';
+      wrap.classList.add('idle');
+    }, 2600);
+
+    var saidBye = false;
+    function onScroll(){
+      var nearBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 220);
+      if(nearBottom && !saidBye){
+        saidBye = true;
+        img.src = 'assets/mascot-tchau.png';
+        wrap.classList.remove('idle');
+        wrap.classList.add('bye');
+      } else if(!nearBottom && saidBye){
+        saidBye = false;
+        img.src = 'assets/mascot-idle.png';
+        wrap.classList.remove('bye');
+        wrap.classList.add('idle');
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.net-canvas').forEach(function(c){ NetworkCanvas(c); });
     initCursor();
@@ -267,5 +305,6 @@
     initDecode();
     initKinetic();
     initParallax();
+    initMascot();
   });
 })();

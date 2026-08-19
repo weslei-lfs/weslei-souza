@@ -194,6 +194,21 @@
   .magnetic{ transition:transform .18s ease; }
   .decode-text{ font-variant-ligatures:none; }
 
+  /* -------- floating wolf mascot -------- */
+  .mascot-wrap{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    width:140px; pointer-events:none;
+    opacity:0; transform:translateY(40px) scale(.92);
+    transition:opacity .6s cubic-bezier(.16,.8,.24,1), transform .6s cubic-bezier(.16,.8,.24,1);
+  }
+  .mascot-wrap.in{ opacity:1; transform:translateY(0) scale(1); }
+  .mascot-wrap.idle .mascot-img{ animation:mascotBob 3.2s ease-in-out infinite; }
+  .mascot-wrap.bye{ animation:mascotWiggle .6s ease-in-out; }
+  .mascot-img{ width:100%; height:auto; display:block; filter:drop-shadow(0 14px 24px rgba(0,0,0,.45)); }
+  @keyframes mascotBob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  @keyframes mascotWiggle{ 0%,100%{ transform:rotate(0deg); } 25%{ transform:rotate(-4deg); } 75%{ transform:rotate(4deg); } }
+  @media (max-width:560px){ .mascot-wrap{ width:96px; right:12px; bottom:12px; } }
+
   @media (max-width:900px){
     .nav-links{ display:none; }
     .manifesto-grid{ grid-template-columns:1fr; gap:36px; }
